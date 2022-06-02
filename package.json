@@ -1,10 +1,10 @@
 {
   "name": "password-generator",
-  "version": "0.0.1-alfa.0",
+  "version": "0.0.1-alfa.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "npm --no-git-tag-version version prerelease && git add ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nikitababko/password-generator/issues"
   },
-  "homepage": "https://github.com/nikitababko/password-generator#readme"
+  "homepage": "https://github.com/nikitababko/password-generator#readme",
+  "devDependencies": {
+    "husky": "^8.0.1"
+  }
 }
