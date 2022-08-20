@@ -14,7 +14,7 @@ const random = (args: any) => {
 };
 
 const passGen = (args: any): string => {
-    const { length, only } = args;
+    const { length, only, quantity } = args;
 
     const pattern = Array(length).fill('#');
     const password = pattern.join('').replaceAll(/#/g, () => random({ only }));
