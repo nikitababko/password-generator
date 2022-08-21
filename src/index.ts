@@ -1,14 +1,13 @@
-import { randomIndex } from './utils';
+import { randomIndex, sortRandom } from './utils';
 
 const alphabetUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const alphabetLowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const alphabetNumbers = '0123456789';
 const alphabetSymbols = `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`;
-const similarCharacters = 'ilI1LoO0';
+const alphabetCharacters = 'ilI1LoO0';
 
 const stringDontBeginNumberOrSymbol = (str: string) => {
     const firstChar = str[0];
-    console.log('firstChar', str, firstChar);
 
     const withANumber = () => {
         return alphabetNumbers.indexOf(firstChar);
@@ -35,8 +34,8 @@ const random = (args: any) => {
 
     let str: string[] = [];
 
-    if (includeLowerCaseChars) str.push(alphabetLowerCase[randomIndex()]);
     if (includeNumbers) str.push(alphabetNumbers[randomIndex()]);
+    if (includeLowerCaseChars) str.push(alphabetLowerCase[randomIndex()]);
     if (includeUpperCaseChars) str.push(alphabetUpperCase[randomIndex()]);
     if (includeSymbols) str.push(alphabetSymbols[randomIndex()]);
 
@@ -45,10 +44,14 @@ const random = (args: any) => {
     }
 
     // if (noSimilarChars) {
+    //     let testArr: string[] = []
+    //     for (let item of alphabetCharacters) {
+    //         testArr.push()
+    //     }
     //     return str.join('').replaceAll('I', '0000');
     // }
 
-    return str.join('');
+    return sortRandom(str).join('');
 };
 
 const passGen = (args: any): string[] => {
@@ -94,17 +97,15 @@ const passGen = (args: any): string[] => {
     return password({ quantity, dontBeginWithANumberOrSymbol, includeNumbers, noSimilarChars });
 };
 
-// console.log(
-//     passGen({
-//         length: 16,
-//         quantity: 3,
-//         includeNumbers: true,
-//         dontBeginWithANumberOrSymbol: true,
-//         includeLowerCaseChars: true,
-//         includeUpperCaseChars: true,
-//         includeSymbols: true,
-//         noSimilarChars: true,
-//     }),
-// );
-
-console.log(['A', 'B', 'C', 'D', 'E'].sort(() => Math.random() - 0.5));
+console.log(
+    passGen({
+        length: 16,
+        quantity: 3,
+        includeNumbers: true,
+        dontBeginWithANumberOrSymbol: false,
+        includeLowerCaseChars: true,
+        includeUpperCaseChars: true,
+        includeSymbols: true,
+        noSimilarChars: true,
+    }),
+);
