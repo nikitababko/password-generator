@@ -1,46 +1,52 @@
+import { randomIndex } from './utils';
+
 const alphabetUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const alphabetLowerCase = 'abcdefghijklmnopqrstuvwxyz';
 const alphabetNumbers = '0123456789';
 const alphabetSymbols = `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`;
 const similarCharacters = 'ilI1LoO0';
 
-const stringDontBeginNumberOrLetter = (str: string) => {
+const stringDontBeginNumberOrSymbol = (str: string) => {
     const firstChar = str[0];
+    console.log('firstChar', str, firstChar);
 
     const withANumber = () => {
-        for (let item of alphabetNumbers) {
-            if (item === firstChar) return !!item;
-        }
+        return alphabetNumbers.indexOf(firstChar);
     };
 
     const withASymbol = () => {
-        for (let item of alphabetSymbols) {
-            if (item === firstChar) return !!item;
-        }
+        return alphabetSymbols.indexOf(firstChar);
     };
 
-    const newStr = withANumber() || withASymbol() ? str.replace(firstChar, 'j') : str;
+    const newStr = withANumber() || withASymbol() ? str.replace(firstChar, alphabetLowerCase[randomIndex()]) : str;
 
     return newStr;
 };
 
 const random = (args: any) => {
     const {
-        noSimilarCharacters,
         dontBeginWithANumberOrSymbol,
         includeNumbers,
-        includeLowerCaseChar,
-        includeUpperCaseChar,
+        includeLowerCaseChars,
+        includeUpperCaseChars,
         includeSymbols,
+        noSimilarChars,
     } = args;
-    const randomIndex = () => Number(String(Math.random())[2]);
 
     let str: string[] = [];
 
+    if (includeLowerCaseChars) str.push(alphabetLowerCase[randomIndex()]);
     if (includeNumbers) str.push(alphabetNumbers[randomIndex()]);
-    if (includeLowerCaseChar) str.push(alphabetLowerCase[randomIndex()]);
-    if (includeUpperCaseChar) str.push(alphabetUpperCase[randomIndex()]);
-    if (includeSymbols) str.push(alphabetLowerCase[randomIndex()]);
+    if (includeUpperCaseChars) str.push(alphabetUpperCase[randomIndex()]);
+    if (includeSymbols) str.push(alphabetSymbols[randomIndex()]);
+
+    if (dontBeginWithANumberOrSymbol) {
+        return stringDontBeginNumberOrSymbol(str.join(''));
+    }
+
+    // if (noSimilarChars) {
+    //     return str.join('').replaceAll('I', '0000');
+    // }
 
     return str.join('');
 };
@@ -48,20 +54,19 @@ const random = (args: any) => {
 const passGen = (args: any): string[] => {
     const {
         length,
-        only,
         quantity,
-        noSimilarCharacters,
         includeNumbers,
-        includeLowerCaseChar,
-        includeUpperCaseChar,
+        includeLowerCaseChars,
+        includeUpperCaseChars,
         includeSymbols,
         dontBeginWithANumberOrSymbol,
+        noSimilarChars,
     } = args;
 
     const pattern = Array(length).fill('#');
 
     const password = (args: any): string[] => {
-        const { quantity, noSimilarCharacters, dontBeginWithANumberOrSymbol } = args;
+        const { quantity, dontBeginWithANumberOrSymbol, noSimilarChars } = args;
 
         const arr: string[] = [];
 
@@ -70,12 +75,12 @@ const passGen = (args: any): string[] => {
                 .join('')
                 .replaceAll(/#/g, () =>
                     random({
-                        noSimilarCharacters,
                         dontBeginWithANumberOrSymbol,
                         includeNumbers,
-                        includeLowerCaseChar,
-                        includeUpperCaseChar,
+                        includeLowerCaseChars,
+                        includeUpperCaseChars,
                         includeSymbols,
+                        noSimilarChars,
                     }),
                 )
                 .slice(0, 16);
@@ -86,19 +91,20 @@ const passGen = (args: any): string[] => {
         return arr;
     };
 
-    return password({ quantity, noSimilarCharacters, dontBeginWithANumberOrSymbol, includeNumbers });
+    return password({ quantity, dontBeginWithANumberOrSymbol, includeNumbers, noSimilarChars });
 };
 
-console.log(
-    passGen({
-        length: 16,
-        only: true,
-        quantity: 3,
-        noSimilarCharacters: true,
-        dontBeginWithANumberOrSymbol: true,
-        includeNumbers: true,
-        includeLowerCaseChar: true,
-        includeUpperCaseChar: true,
-        includeSymbols: true,
-    }),
-);
+// console.log(
+//     passGen({
+//         length: 16,
+//         quantity: 3,
+//         includeNumbers: true,
+//         dontBeginWithANumberOrSymbol: true,
+//         includeLowerCaseChars: true,
+//         includeUpperCaseChars: true,
+//         includeSymbols: true,
+//         noSimilarChars: true,
+//     }),
+// );
+
+console.log(['A', 'B', 'C', 'D', 'E'].sort(() => Math.random() - 0.5));
