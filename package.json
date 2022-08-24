@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.1-alfa.6",
+    "version": "0.0.1-alfa.7",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -40,16 +40,16 @@
     },
     "homepage": "https://github.com/nikitababko/password-generator#readme",
     "devDependencies": {
-        "husky": "^8.0.1",
-        "@types/chai": "^4.3.1",
-        "@types/mocha": "^9.1.1",
-        "@types/node": "^17.0.42",
-        "chai": "^4.3.6",
-        "mocha": "^10.0.0",
-        "ts-loader": "^9.3.0",
-        "ts-node": "^10.8.1",
-        "typescript": "^4.7.3",
-        "webpack": "^5.73.0",
-        "webpack-cli": "^4.9.2"
+        "husky": "8.0.1",
+        "@types/chai": "4.3.1",
+        "@types/mocha": "9.1.1",
+        "@types/node": "17.0.42",
+        "chai": "4.3.6",
+        "mocha": "10.0.0",
+        "ts-loader": "9.3.0",
+        "ts-node": "10.8.1",
+        "typescript": "4.7.3",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.9.2"
     }
 }
