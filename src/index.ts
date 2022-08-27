@@ -1,63 +1,25 @@
-import { randomIndex, sortRandom } from './utils';
+import { ArgsType, IncludeType } from 'utils/index.types';
 
-const alphabetUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const alphabetLowerCase = 'abcdefghijklmnopqrstuvwxyz';
-const alphabetNumbers = '0123456789';
-const alphabetSymbols = `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`;
-const alphabetCharacters = 'ilI1LoO0';
-
-const stringDontBeginNumberOrSymbol = (str: string) => {
-    const firstChar = str[0];
-
-    const withANumber = () => {
-        return alphabetNumbers.indexOf(firstChar);
-    };
-
-    const withASymbol = () => {
-        return alphabetSymbols.indexOf(firstChar);
-    };
-
-    const newStr = withANumber() || withASymbol() ? str.replace(firstChar, alphabetLowerCase[randomIndex()]) : str;
-
-    return newStr;
+const Include: IncludeType = {
+    UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    LowersChars: 'abcdefghijklmnopqrstuvwxyz',
+    NumbersChars: '1234567890',
+    SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
+    SimilarChars: 'ilI1LoO0',
 };
 
-const random = (args: any) => {
-    const {
-        dontBeginWithANumberOrSymbol,
-        includeNumbers,
-        includeLowerCaseChars,
-        includeUpperCaseChars,
-        includeSymbols,
-        noSimilarChars,
-    } = args;
+const getRandomCharFromString = (str: string): string => {
+    const hasSimilarChars: boolean = Include.SimilarChars.includes(str.charAt(Math.floor(Math.random() * str.length)));
 
-    let str: string[] = [];
+    if (hasSimilarChars) return 's';
 
-    if (includeNumbers) str.push(alphabetNumbers[randomIndex()]);
-    if (includeLowerCaseChars) str.push(alphabetLowerCase[randomIndex()]);
-    if (includeUpperCaseChars) str.push(alphabetUpperCase[randomIndex()]);
-    if (includeSymbols) str.push(alphabetSymbols[randomIndex()]);
-
-    if (dontBeginWithANumberOrSymbol) {
-        return stringDontBeginNumberOrSymbol(str.join(''));
-    }
-
-    // if (noSimilarChars) {
-    //     let testArr: string[] = []
-    //     for (let item of alphabetCharacters) {
-    //         testArr.push()
-    //     }
-    //     return str.join('').replaceAll('I', '0000');
-    // }
-
-    return sortRandom(str).join('');
+    return str.charAt(Math.floor(Math.random() * str.length));
 };
 
-const passGen = (args: any): string[] => {
+const generatePassword = (args: ArgsType): string[] => {
     const {
-        length,
-        quantity,
+        length = 4,
+        quantity = 1,
         includeNumbers,
         includeLowerCaseChars,
         includeUpperCaseChars,
@@ -66,45 +28,49 @@ const passGen = (args: any): string[] => {
         noSimilarChars,
     } = args;
 
-    const pattern = Array(length).fill('#');
+    const passwordsArray: string[] = [];
 
-    const password = (args: any): string[] => {
-        const { quantity, dontBeginWithANumberOrSymbol, noSimilarChars } = args;
+    for (let i = 0; i < quantity; i++) {
+        let string: string = '';
 
-        const arr: string[] = [];
-
-        for (let i = 0; i < quantity; i++) {
-            const v = pattern
-                .join('')
-                .replaceAll(/#/g, () =>
-                    random({
-                        dontBeginWithANumberOrSymbol,
-                        includeNumbers,
-                        includeLowerCaseChars,
-                        includeUpperCaseChars,
-                        includeSymbols,
-                        noSimilarChars,
-                    }),
-                )
-                .slice(0, 16);
-
-            arr.push(v);
+        for (let i = 0; i < length; i++) {
+            if (includeUpperCaseChars) {
+                string += getRandomCharFromString(Include.UppersChars);
+            }
+            if (includeLowerCaseChars) {
+                string += getRandomCharFromString(Include.LowersChars);
+            }
+            if (includeNumbers) {
+                string += getRandomCharFromString(Include.NumbersChars);
+            }
+            if (includeSymbols) {
+                string += getRandomCharFromString(Include.SymbolChars);
+            }
         }
 
-        return arr;
-    };
+        const password: string = string.slice(0, length);
 
-    return password({ quantity, dontBeginWithANumberOrSymbol, includeNumbers, noSimilarChars });
+        if (dontBeginWithANumberOrSymbol) {
+            if (/^\d/.test(password) || /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/.test(password)) {
+                const newPassword = password.replace(password[0], getRandomCharFromString(Include.LowersChars));
+                passwordsArray.push(newPassword);
+            }
+        } else {
+            passwordsArray.push(password);
+        }
+    }
+
+    return passwordsArray;
 };
 
 console.log(
-    passGen({
+    generatePassword({
         length: 16,
-        quantity: 3,
-        includeNumbers: true,
-        dontBeginWithANumberOrSymbol: false,
-        includeLowerCaseChars: true,
-        includeUpperCaseChars: true,
+        quantity: 1,
+        includeNumbers: false,
+        dontBeginWithANumberOrSymbol: true,
+        includeLowerCaseChars: false,
+        includeUpperCaseChars: false,
         includeSymbols: true,
         noSimilarChars: true,
     }),
