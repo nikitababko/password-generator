@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.1-alfa.10",
+    "version": "0.0.1-alfa.11",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -12,10 +12,10 @@
         "build:lib": "npm run clear && tsc && tsc -m es6 --outDir dist && webpack",
         "test:all": "mocha './src/index.spec.ts'",
         "pre:commit": "yarn pre:release",
-        "pre:release": "npm --no-git-tag-version version prerelease && git add .",
-        "pre:patch": "npm --no-git-tag-version version patch && git add .",
-        "pre:minor": "npm --no-git-tag-version version minor && git add .",
-        "pre:major": "npm --no-git-tag-version version major && git add ."
+        "pre:release": "npm --no-git-tag-version version prerelease",
+        "pre:patch": "npm --no-git-tag-version version patch",
+        "pre:minor": "npm --no-git-tag-version version minor",
+        "pre:major": "npm --no-git-tag-version version major"
     },
     "keywords": [
         "password",
