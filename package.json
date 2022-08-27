@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.1-alfa.11",
+    "version": "0.0.1-alfa.13",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
