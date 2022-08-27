@@ -1,6 +1,5 @@
-// TODO: 'noSimilarChars' flag refactoring
-
-import { ArgsType, IncludeType } from 'utils/index.types';
+import { ArgsType, IncludeType } from './index.types';
+import { getFactor, getRandomCharFromString, getStringWithoutSequentialChars } from './utils';
 
 const Include: IncludeType = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -9,10 +8,6 @@ const Include: IncludeType = {
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
     NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
-};
-
-const getRandomCharFromString = (str: string): string => {
-    return str.charAt(Math.floor(Math.random() * str.length));
 };
 
 const generatePassword = (args: ArgsType): string[] => {
@@ -24,6 +19,7 @@ const generatePassword = (args: ArgsType): string[] => {
         includeUpperCaseChars,
         includeSymbols,
         noSimilarChars,
+        noSequentialChars,
         dontBeginWithANumberOrSymbol,
     } = args;
 
@@ -50,13 +46,17 @@ const generatePassword = (args: ArgsType): string[] => {
         let password: string = string.slice(0, length);
 
         if (noSimilarChars) {
-            password = password.replaceAll(/[ilI1LoO0]/g, Include.NoSimilarChars[Math.floor(Math.random() * 12)]);
+            password = password.replaceAll(/[ilI1LoO0]/g, Include.NoSimilarChars[getFactor(password)]);
         }
 
         if (dontBeginWithANumberOrSymbol) {
             if (/^\d/.test(password) || /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/.test(password)) {
                 password = password.replace(password[0], getRandomCharFromString(Include.LowersChars));
             }
+        }
+
+        if (noSequentialChars) {
+            password = getStringWithoutSequentialChars(password);
         }
 
         passwordsArray.push(password);
@@ -74,6 +74,7 @@ console.log(
         includeUpperCaseChars: true,
         includeSymbols: true,
         noSimilarChars: true,
+        noSequentialChars: true,
         dontBeginWithANumberOrSymbol: true,
     }),
 );

@@ -7,6 +7,7 @@ export type ArgsType = Partial<{
     includeUpperCaseChars: boolean;
     includeSymbols: boolean;
     noSimilarChars: boolean;
+    noSequentialChars: boolean;
 }>;
 
 export type IncludeType = {
