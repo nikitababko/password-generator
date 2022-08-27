@@ -17,4 +17,5 @@ export type IncludeType = {
     SymbolChars: string;
     SimilarChars: string;
     NoSimilarChars: string;
+    AllChars: () => string;
 };
