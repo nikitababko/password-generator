@@ -15,4 +15,5 @@ export type IncludeType = {
     NumbersChars: string;
     SymbolChars: string;
     SimilarChars: string;
+    NoSimilarChars: string;
 };

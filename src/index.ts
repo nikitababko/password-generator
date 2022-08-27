@@ -1,3 +1,5 @@
+// TODO: 'noSimilarChars' flag refactoring
+
 import { ArgsType, IncludeType } from 'utils/index.types';
 
 const Include: IncludeType = {
@@ -6,13 +8,10 @@ const Include: IncludeType = {
     NumbersChars: '1234567890',
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
+    NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
 };
 
 const getRandomCharFromString = (str: string): string => {
-    const hasSimilarChars: boolean = Include.SimilarChars.includes(str.charAt(Math.floor(Math.random() * str.length)));
-
-    if (hasSimilarChars) return 's';
-
     return str.charAt(Math.floor(Math.random() * str.length));
 };
 
@@ -24,8 +23,8 @@ const generatePassword = (args: ArgsType): string[] => {
         includeLowerCaseChars,
         includeUpperCaseChars,
         includeSymbols,
-        dontBeginWithANumberOrSymbol,
         noSimilarChars,
+        dontBeginWithANumberOrSymbol,
     } = args;
 
     const passwordsArray: string[] = [];
@@ -48,16 +47,19 @@ const generatePassword = (args: ArgsType): string[] => {
             }
         }
 
-        const password: string = string.slice(0, length);
+        let password: string = string.slice(0, length);
+
+        if (noSimilarChars) {
+            password = password.replaceAll(/[ilI1LoO0]/g, Include.NoSimilarChars[Math.floor(Math.random() * 12)]);
+        }
 
         if (dontBeginWithANumberOrSymbol) {
             if (/^\d/.test(password) || /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/.test(password)) {
-                const newPassword = password.replace(password[0], getRandomCharFromString(Include.LowersChars));
-                passwordsArray.push(newPassword);
+                password = password.replace(password[0], getRandomCharFromString(Include.LowersChars));
             }
-        } else {
-            passwordsArray.push(password);
         }
+
+        passwordsArray.push(password);
     }
 
     return passwordsArray;
@@ -67,11 +69,11 @@ console.log(
     generatePassword({
         length: 16,
         quantity: 1,
-        includeNumbers: false,
-        dontBeginWithANumberOrSymbol: true,
-        includeLowerCaseChars: false,
-        includeUpperCaseChars: false,
+        includeNumbers: true,
+        includeLowerCaseChars: true,
+        includeUpperCaseChars: true,
         includeSymbols: true,
         noSimilarChars: true,
+        dontBeginWithANumberOrSymbol: true,
     }),
 );
