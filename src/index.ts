@@ -81,14 +81,14 @@ console.log(
     generatePassword({
         length: 16,
         quantity: 1,
-        includeLowerCaseChars: false,
-        includeUpperCaseChars: false,
+        includeLowerCaseChars: true,
+        includeUpperCaseChars: true,
         includeNumbers: true,
         includeSymbols: true,
         noSimilarChars: false,
         noSequentialChars: true,
         noDuplicatesChars: true,
         dontBeginWithANumber: true,
-        dontBeginWithASymbol: false,
+        dontBeginWithASymbol: true,
     }),
 );
