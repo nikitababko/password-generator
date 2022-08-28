@@ -2,12 +2,14 @@ export type ArgsType = Partial<{
     length: number;
     quantity: number;
     includeNumbers: boolean;
-    dontBeginWithANumberOrSymbol: boolean;
+    dontBeginWithANumber: boolean;
+    dontBeginWithASymbol: boolean;
     includeLowerCaseChars: boolean;
     includeUpperCaseChars: boolean;
     includeSymbols: boolean;
     noSimilarChars: boolean;
     noSequentialChars: boolean;
+    noDuplicatesChars: boolean;
 }>;
 
 export type IncludeType = {

@@ -1,0 +1,24 @@
+import { IncludeType } from 'index.types';
+
+export const Include: IncludeType = {
+    UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    LowersChars: 'abcdefghijklmnopqrstuvwxyz',
+    NumbersChars: '1234567890',
+    SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
+    SimilarChars: 'ilI1LoO0',
+    NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
+    AllChars: function () {
+        return (
+            (this as any).UppersChars +
+            (this as any).LowersChars +
+            (this as any).NumbersChars +
+            (this as any).SymbolChars
+        );
+    },
+};
+
+export const RegExps = {
+    WithoutBeginNumber: /^\d/,
+    WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
+    WithoutDuplicates: /(\w)\1{1}/g,
+};
