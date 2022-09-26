@@ -1,4 +1,4 @@
-import { IncludeType } from 'index.types';
+import { IncludeType, RegExpsType } from 'index.types';
 
 export const Include: IncludeType = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -17,7 +17,7 @@ export const Include: IncludeType = {
     },
 };
 
-export const RegExps = {
+export const RegExps: RegExpsType = {
     WithoutBeginNumber: /^\d/,
     WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
     WithoutDuplicates: /(\w)\1{1}/g,

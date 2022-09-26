@@ -12,6 +12,8 @@ export type ArgsType = Partial<{
     noDuplicatesChars: boolean;
 }>;
 
+export type GeneratePasswordType = (args: ArgsType) => string[];
+
 export type IncludeType = {
     UppersChars: string;
     LowersChars: string;
@@ -21,3 +23,19 @@ export type IncludeType = {
     NoSimilarChars: string;
     AllChars: () => string;
 };
+
+export type RegExpsType = Record<string, RegExp>;
+
+export type GetFactorType = <T>(value: T) => number;
+
+export type GetRandomCharFromStringType = (str: string) => string;
+
+export type GetStringWithoutBeginNumberType = (str: string) => string;
+
+export type GetStringWithoutBeginSymbolType = (str: string) => string;
+
+export type GetStringWithoutDuplicatesType = (str: string) => string;
+
+export type GetStringWithoutSequentialCharsType = (str: string) => string;
+
+export type GetStringWithoutSimilarCharsType = (str: string) => string;

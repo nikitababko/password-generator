@@ -1,4 +1,4 @@
-import { ArgsType } from 'index.types';
+import { GeneratePasswordType } from 'index.types';
 import {
     getRandomCharFromString,
     getStringWithoutBeginNumber,
@@ -10,21 +10,19 @@ import {
     RegExps,
 } from './utils';
 
-const generatePassword = (args: ArgsType): string[] => {
-    const {
-        length = 4,
-        quantity = 1,
-        includeNumbers,
-        includeLowerCaseChars,
-        includeUpperCaseChars,
-        includeSymbols,
-        noSimilarChars,
-        noSequentialChars,
-        dontBeginWithANumber,
-        noDuplicatesChars,
-        dontBeginWithASymbol,
-    } = args;
-
+export const generatePassword: GeneratePasswordType = ({
+    length = 4,
+    quantity = 1,
+    includeNumbers,
+    includeLowerCaseChars,
+    includeUpperCaseChars,
+    includeSymbols,
+    noSimilarChars,
+    noSequentialChars,
+    dontBeginWithANumber,
+    noDuplicatesChars,
+    dontBeginWithASymbol,
+}) => {
     const passwordsArray: string[] = [];
 
     for (let i = 0; i < quantity; i++) {
@@ -76,19 +74,3 @@ const generatePassword = (args: ArgsType): string[] => {
 
     return passwordsArray;
 };
-
-console.log(
-    generatePassword({
-        length: 16,
-        quantity: 1,
-        includeLowerCaseChars: true,
-        includeUpperCaseChars: true,
-        includeNumbers: true,
-        includeSymbols: true,
-        noSimilarChars: false,
-        noSequentialChars: true,
-        noDuplicatesChars: true,
-        dontBeginWithANumber: true,
-        dontBeginWithASymbol: true,
-    }),
-);
