@@ -1,3 +1,7 @@
 import { generatePassword } from '../dist/index';
 
-console.log(generatePassword({}));
+console.log(
+    generatePassword({
+        length: 16,
+    }),
+);
