@@ -7,3 +7,4 @@ export * from './getStringWithoutBeginSymbol';
 export * from './getStringWithoutDuplicates';
 export * from './getStringWithoutSequentialChars';
 export * from './getStringWithoutSimilarChars';
+//# sourceMappingURL=index.d.ts.map

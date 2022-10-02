@@ -2,17 +2,28 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "es5",
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "lib": [
-      "es2021"
+      "es6",
+      "es2021",
+      "dom"
     ],
     "strict": true,
-    "esModuleInterop": false,
+    "jsx": "react",
+    "esModuleInterop": true,
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist"
+    "sourceRoot": "./",
+    "declarationMap": true, 
+    "declarationDir": ".dist/",
+    "outDir": "./dist/",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
   },
   "include": [
     "src/index.ts",

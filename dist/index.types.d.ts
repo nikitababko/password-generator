@@ -29,3 +29,4 @@ export declare type GetStringWithoutBeginSymbolType = (str: string) => string;
 export declare type GetStringWithoutDuplicatesType = (str: string) => string;
 export declare type GetStringWithoutSequentialCharsType = (str: string) => string;
 export declare type GetStringWithoutSimilarCharsType = (str: string) => string;
+//# sourceMappingURL=index.types.d.ts.map
