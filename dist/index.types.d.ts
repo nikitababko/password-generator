@@ -2,8 +2,8 @@ export declare type ArgsType = Partial<{
     length: number;
     quantity: number;
     includeNumbers: boolean;
-    dontBeginWithANumber: boolean;
-    dontBeginWithASymbol: boolean;
+    dontStartWithANumber: boolean;
+    dontStartWithASymbol: boolean;
     includeLowerCaseChars: boolean;
     includeUpperCaseChars: boolean;
     includeSymbols: boolean;

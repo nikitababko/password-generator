@@ -10,8 +10,6 @@ export default {
     plugins: [
         typescript({
             tsconfig: './tsconfig.production.json',
-
-            exclude: ['tests', 'src/*.test.ts, src/*.spec.ts', 'src/index.dev.ts'],
         }),
         terser(),
         sizeSnapshot(),

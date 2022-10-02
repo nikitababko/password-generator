@@ -10,6 +10,37 @@ import {
     RegExps,
 } from './utils';
 
+/**
+ * generatePassword.
+ *
+ * @param {number} [length=4] - passwords length
+ * @param {number} [quantity=1] - passwords quantity
+ * @param {boolean} includeNumbers - inlcude numbers or not
+ * @param {boolean} dontStartWithANumber - do not start password with number
+ * @param {boolean} dontStartWithASymbol - do not start password with symbol
+ * @param {boolean} includeLowerCaseChars - inlcude lower case chars in passwords
+ * @param {boolean} includeUpperCaseChars - inlcude upper case chars in passwords
+ * @param {boolean} includeSymbols - inlcude symbols in password
+ * @param {boolean} noSimilarChars - inlcude similar chars in password
+ * @param {boolean} noSequentialChars - passwords without sequences
+ * @param {boolean} noDuplicatesChars - passwords without dublicates
+ * @return {string[]} passwords array
+ *
+ * @example
+ *     generatePassword({
+                length,
+                quantity,
+                dontStartWithANumber: true,
+                dontStartWithASymbol: true,
+                includeLowerCaseChars: true,
+                includeNumbers: true,
+                includeSymbols: true,
+                includeUpperCaseChars: true,
+                noDuplicatesChars: true,
+                noSequentialChars: true,
+                noSimilarChars: true,
+            })
+ */
 export const generatePassword: GeneratePasswordType = ({
     length = 4,
     quantity = 1,
@@ -19,9 +50,9 @@ export const generatePassword: GeneratePasswordType = ({
     includeSymbols = true,
     noSimilarChars,
     noSequentialChars,
-    dontBeginWithANumber,
+    dontStartWithANumber,
     noDuplicatesChars,
-    dontBeginWithASymbol,
+    dontStartWithASymbol,
 }) => {
     const passwordsArray: string[] = [];
 
@@ -45,13 +76,13 @@ export const generatePassword: GeneratePasswordType = ({
 
         let password: string = string.slice(0, length);
 
-        if (dontBeginWithANumber) {
+        if (dontStartWithANumber) {
             if (RegExps.WithoutBeginNumber.test(password[0])) {
                 password = getStringWithoutBeginNumber(password);
             }
         }
 
-        if (dontBeginWithASymbol) {
+        if (dontStartWithASymbol) {
             if (RegExps.WithoutBeginSymbol.test(password[0])) {
                 password = getStringWithoutBeginSymbol(password);
             }

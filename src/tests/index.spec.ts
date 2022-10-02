@@ -94,8 +94,8 @@ describe('generatePassword', () => {
             generatePassword({
                 length,
                 quantity,
-                dontBeginWithANumber: true,
-                dontBeginWithASymbol: true,
+                dontStartWithANumber: true,
+                dontStartWithASymbol: true,
                 includeLowerCaseChars: true,
                 includeNumbers: true,
                 includeSymbols: true,
