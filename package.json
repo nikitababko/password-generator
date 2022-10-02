@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.1-alfa.24",
+    "version": "0.0.1-alfa.25",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -43,7 +43,8 @@
         "pre:release": "npm --no-git-tag-version version prerelease",
         "pre:patch": "npm --no-git-tag-version version patch",
         "pre:minor": "npm --no-git-tag-version version minor",
-        "pre:major": "npm --no-git-tag-version version major"
+        "pre:major": "npm --no-git-tag-version version major",
+        "prepare": "npx husky install"
     },
     "devDependencies": {
         "@rollup/plugin-typescript": "8.5.0",
