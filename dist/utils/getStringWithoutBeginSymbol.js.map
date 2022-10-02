@@ -1,0 +1,1 @@
+{"version":3,"file":"getStringWithoutBeginSymbol.js","sourceRoot":"","sources":["../../src/utils/getStringWithoutBeginSymbol.ts"],"names":[],"mappings":";;;AAAA,+BAAiC;AACjC,qEAAoE;AAG7D,IAAM,2BAA2B,GAAoC,UAAC,GAAG;IAC5E,OAAO,GAAG,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,EAAE,IAAA,iDAAuB,EAAC,cAAO,CAAC,WAAW,CAAC,CAAC,CAAC;AAC7E,CAAC,CAAC;AAFW,QAAA,2BAA2B,+BAEtC"}
