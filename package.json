@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.1-alfa.27",
+    "version": "0.0.1",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -39,7 +39,7 @@
         "clear": "rm -rf dist",
         "build:lib": "yarn clear && rollup -c rollup.config.js",
         "test:all": "mocha './src/tests/index.spec.ts'",
-        "pre:commit": "yarn pre:release",
+        "pre:commit": "yarn pre:patch",
         "pre:release": "npm --no-git-tag-version version prerelease",
         "pre:patch": "npm --no-git-tag-version version patch",
         "pre:minor": "npm --no-git-tag-version version minor",
