@@ -1,6 +1,6 @@
 {
     "name": "@nikitababko/password-generator",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Password generator",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -43,7 +43,7 @@
         "start:dev": "ts-node src/index.dev.ts",
         "start:example": "ts-node examples/index.ts",
         "clear": "rm -rf dist",
-        "build:lib": "pnpm clear && rollup -c rollup.config.js",
+        "build:lib": "pnpm clear && tsc -p tsconfig.production.json && rollup -c rollup.config.js",
         "tests": "mocha './src/tests/index.spec.ts'",
         "pre:commit": "pnpm tests && pnpm build:lib && pnpm pre:patch",
         "pre:release": "npm --no-git-tag-version version prerelease",

@@ -1,6 +1,7 @@
-import { IncludeType, RegExpsType } from '../index.types';
-
-export const Include: IncludeType = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RegExps = exports.Include = void 0;
+exports.Include = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowersChars: 'abcdefghijklmnopqrstuvwxyz',
     NumbersChars: '1234567890',
@@ -8,17 +9,15 @@ export const Include: IncludeType = {
     SimilarChars: 'ilI1LoO0',
     NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
     AllChars: function () {
-        return (
-            (this as any).UppersChars +
-            (this as any).LowersChars +
-            (this as any).NumbersChars +
-            (this as any).SymbolChars
-        );
+        return (this.UppersChars +
+            this.LowersChars +
+            this.NumbersChars +
+            this.SymbolChars);
     },
 };
-
-export const RegExps: RegExpsType = {
+exports.RegExps = {
     WithoutBeginNumber: /^\d/,
     WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
     WithoutDuplicates: /(\w)\1{1}/g,
 };
+//# sourceMappingURL=data.js.map

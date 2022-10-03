@@ -1,4 +1,4 @@
-import { GetRandomCharFromStringType } from 'index.types';
+import { GetRandomCharFromStringType } from '../index.types';
 import { getFactor } from './getFactor';
 
 export const getRandomCharFromString: GetRandomCharFromStringType = (str) => {

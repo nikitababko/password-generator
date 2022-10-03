@@ -1,4 +1,4 @@
-import { GeneratePasswordType } from 'index.types';
+import { GeneratePasswordType } from './index.types';
 import {
     getRandomCharFromString,
     getStringWithoutBeginNumber,

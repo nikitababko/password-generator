@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "target": "es5",
-    "module": "esnext",
+    "target": "es6",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "lib": [
@@ -15,15 +15,14 @@
     "esModuleInterop": true,
     "declaration": true,
     "sourceMap": true,
-    "sourceRoot": "./",
     "declarationMap": true, 
-    "declarationDir": ".dist/",
-    "outDir": "./dist/",
+    "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
+    "removeComments": true,
   },
   "include": [
     "src/index.ts",

@@ -1,4 +1,4 @@
-import { GetFactorType } from 'index.types';
+import { GetFactorType } from '../index.types';
 
 export const getFactor: GetFactorType = (value) => {
     const v = Number(typeof value === 'string' ? value.length : value);

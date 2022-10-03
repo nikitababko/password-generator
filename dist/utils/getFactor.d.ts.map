@@ -1,1 +1,1 @@
-{"version":3,"file":"getFactor.d.ts","sourceRoot":"./","sources":["utils/getFactor.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,aAAa,CAAC;AAE5C,eAAO,MAAM,SAAS,EAAE,aAIvB,CAAC"}
+{"version":3,"file":"getFactor.d.ts","sourceRoot":"","sources":["../../src/utils/getFactor.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,gBAAgB,CAAC;AAE/C,eAAO,MAAM,SAAS,EAAE,aAIvB,CAAC"}
