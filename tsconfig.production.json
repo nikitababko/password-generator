@@ -16,6 +16,7 @@
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true, 
+    "declarationDir": "dist",
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
