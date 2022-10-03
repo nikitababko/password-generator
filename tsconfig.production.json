@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "es6",
-    "module": "CommonJS",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "lib": [
@@ -18,12 +18,10 @@
     "declarationMap": true, 
     "declarationDir": "dist",
     "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
-    "removeComments": true,
   },
   "include": [
     "src/index.ts",
