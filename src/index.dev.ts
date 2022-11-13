@@ -2,6 +2,7 @@ import { generatePassword } from './';
 
 console.log(
     generatePassword({
-        length: 7,
+        length: 16,
+        quantity: 3,
     }),
 );
