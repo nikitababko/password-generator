@@ -1,6 +1,6 @@
 # Password generator &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Examples
+## Usage example
 
 ```
   generatePassword({ length: 16 }) // [ 'Yp7;Fg3~Ej4:Us7#' ]
