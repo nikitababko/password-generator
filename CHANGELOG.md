@@ -1,3 +1,7 @@
+### v0.0.8 (2022-11-12)
+
+- 🔧 Fixed jsDoc for 'generatePassword' method
+
 ### [v0.0.1-alfa.22 (2022-09-26)](https://github.com/nikitababko/password-generator/tree/76dca230389dd0ac4c24ad9761e6f9597d7896ea)
 
 - 📋 Added unit tests

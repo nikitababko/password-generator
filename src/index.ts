@@ -1,4 +1,4 @@
-import { GeneratePasswordType } from './index.types';
+import {GeneratePasswordType} from './index.types';
 import {
     getRandomCharFromString,
     getStringWithoutBeginNumber,
@@ -11,23 +11,37 @@ import {
 } from './utils';
 
 /**
- * Password generator
- *
- * @param {number} [length=6] passwords length
- * @param {number} [quantity=1] passwords quantity
- * @param {boolean} [includeNumbers] include numbers or not
- * @param {boolean} [dontStartWithANumber] do not start password with number
- * @param {boolean} [dontStartWithASymbol] do not start password with symbol
- * @param {boolean} [includeLowerCaseChars] include lower case chars in passwords
- * @param {boolean} [includeUpperCaseChars] include upper case chars in passwords
- * @param {boolean} [includeSymbols] include symbols in password
- * @param {boolean} [noSimilarChars] include similar chars in password
- * @param {boolean} [noSequentialChars] passwords without sequences
- * @param {boolean} [noDuplicatesChars] passwords without duplicates
- * @return {string[]} passwords array
+ * @description Password generator
  *
  * @example
- * generatePassword({length = 16, quantity = 2, dontStartWithANumber: true, dontStartWithASymbol: true, includeLowerCaseChars: true, includeNumbers: true, includeSymbols: true, includeUpperCaseChars: true, noDuplicatesChars: true, noSequentialChars: true, noSimilarChars: true})
+ * generatePassword({
+ *      length = 16,
+ *      quantity = 2,
+ *      includeNumbers: true,
+ *      includeLowerCaseChars: true,
+ *      includeUpperCaseChars: true,
+ *      includeSymbols: true,
+ *      noSimilarChars: true
+ *      noSequentialChars: true,
+ *      dontStartWithANumber: true,
+ *      dontStartWithASymbol: true,
+ *      noDuplicatesChars: true,
+ * })
+ *
+ * @param {Object} passwordConfig - password configuration
+ * @param {number} passwordConfig.length - password length
+ * @param {number} passwordConfig.quantity - passwords quantity
+ * @param {boolean} passwordConfig.includeNumbers - include numbers or not
+ * @param {boolean} passwordConfig.dontStartWithANumber - do not start password with number
+ * @param {boolean} passwordConfig.dontStartWithASymbol - do not start password with symbol
+ * @param {boolean} passwordConfig.includeLowerCaseChars - include lower case chars in passwords
+ * @param {boolean} passwordConfig.includeUpperCaseChars - include upper case chars in passwords
+ * @param {boolean} passwordConfig.includeSymbols - include symbols in password
+ * @param {boolean} passwordConfig.noSimilarChars - include similar chars in password
+ * @param {boolean} passwordConfig.noSequentialChars - passwords without sequences
+ * @param {boolean} passwordConfig.noDuplicatesChars - passwords without duplicates
+ *
+ * @returns {string[]} passwords array
  *
  * @author Nikita Babko <niki.babko@gmail.com>
  * @link <https://github.com/nikitababko>
@@ -42,8 +56,8 @@ export const generatePassword: GeneratePasswordType = ({
     noSimilarChars,
     noSequentialChars,
     dontStartWithANumber,
-    noDuplicatesChars,
     dontStartWithASymbol,
+    noDuplicatesChars,
 }) => {
     const passwordsArray: string[] = [];
 
