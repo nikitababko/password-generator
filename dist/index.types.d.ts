@@ -22,7 +22,7 @@ export declare type IncludeType = {
     AllChars: () => string;
 };
 export declare type RegExpsType = Record<string, RegExp>;
-export declare type GetFactorType = <T>(value: T) => number;
+export declare type GetRandomNumberType = <T>(value: T) => number;
 export declare type GetRandomCharFromStringType = (str: string) => string;
 export declare type GetStringWithoutBeginNumberType = (str: string) => string;
 export declare type GetStringWithoutBeginSymbolType = (str: string) => string;

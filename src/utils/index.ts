@@ -1,6 +1,6 @@
 export * from './';
 export * from './data';
-export * from './getFactor';
+export * from './getRandomNumber';
 export * from './getRandomCharFromString';
 export * from './getStringWithoutBeginNumber';
 export * from './getStringWithoutBeginSymbol';

@@ -1,9 +1,9 @@
-import { expect, assert } from 'chai';
+import { assert, expect } from 'chai';
 
 import { generatePassword } from '../index';
 import {
-    getFactor,
     getRandomCharFromString,
+    getRandomNumber,
     getStringWithoutBeginNumber,
     getStringWithoutBeginSymbol,
     getStringWithoutDuplicates,
@@ -11,17 +11,17 @@ import {
     getStringWithoutSimilarChars,
 } from '../utils';
 
-describe('getFactor', () => {
+describe('getRandomNumber', () => {
     it('Value to be exists', () => {
-        assert.exists(getFactor(7), 'Value is not exists');
+        assert.exists(getRandomNumber(7), 'Value is not exists');
     });
 
     it("Pass 'number' and returned value to be a 'number'", () => {
-        expect(getFactor(7)).to.be.a('number', "Value type is not a 'number'");
+        expect(getRandomNumber(7)).to.be.a('number', "Value type is not a 'number'");
     });
 
     it("Pass 'string' and returned value to be a 'number'", () => {
-        expect(getFactor('some-string')).to.be.a('number', "Value type is not a 'number'");
+        expect(getRandomNumber('some-string')).to.be.a('number', "Value type is not a 'number'");
     });
 });
 

@@ -2,6 +2,9 @@ import { Include } from './data';
 import { getRandomCharFromString } from './getRandomCharFromString';
 import { GetStringWithoutSequentialCharsType } from '../index.types';
 
+/**
+ * @description Get string without sequential chars
+ */
 export const getStringWithoutSequentialChars: GetStringWithoutSequentialCharsType = (str) => {
     return str
         .split('')

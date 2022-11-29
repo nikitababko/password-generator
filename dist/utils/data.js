@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegExps = exports.Include = void 0;
+/**
+ * @description Chars dictionary
+ */
 exports.Include = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowersChars: 'abcdefghijklmnopqrstuvwxyz',
@@ -15,6 +18,9 @@ exports.Include = {
             this.SymbolChars);
     },
 };
+/**
+ * @description Regular expressions
+ */
 exports.RegExps = {
     WithoutBeginNumber: /^\d/,
     WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,

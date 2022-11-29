@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStringWithoutSequentialChars = void 0;
 const data_1 = require("./data");
 const getRandomCharFromString_1 = require("./getRandomCharFromString");
+/**
+ * @description Get string without sequential chars
+ */
 const getStringWithoutSequentialChars = (str) => {
     return str
         .split('')

@@ -16,7 +16,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./"), exports);
 __exportStar(require("./data"), exports);
-__exportStar(require("./getFactor"), exports);
+__exportStar(require("./getRandomNumber"), exports);
 __exportStar(require("./getRandomCharFromString"), exports);
 __exportStar(require("./getStringWithoutBeginNumber"), exports);
 __exportStar(require("./getStringWithoutBeginSymbol"), exports);

@@ -26,7 +26,7 @@ export type IncludeType = {
 
 export type RegExpsType = Record<string, RegExp>;
 
-export type GetFactorType = <T>(value: T) => number;
+export type GetRandomNumberType = <T>(value: T) => number;
 
 export type GetRandomCharFromStringType = (str: string) => string;
 

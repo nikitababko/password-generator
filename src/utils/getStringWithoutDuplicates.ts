@@ -1,12 +1,15 @@
 import { Include, RegExps } from './data';
-import { getFactor } from './getFactor';
+import { getRandomNumber } from './getRandomNumber';
 import { GetStringWithoutDuplicatesType } from '../index.types';
 
+/**
+ * @description Get string without duplicates
+ */
 export const getStringWithoutDuplicates: GetStringWithoutDuplicatesType = (str) => {
     return str.replaceAll(
         RegExps.WithoutDuplicates,
         () =>
-            Include.AllChars()[getFactor<number>(Include.AllChars().length)] +
-            Include.AllChars()[getFactor<number>(Include.AllChars().length)],
+            Include.AllChars()[getRandomNumber<number>(Include.AllChars().length)] +
+            Include.AllChars()[getRandomNumber<number>(Include.AllChars().length)],
     );
 };

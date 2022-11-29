@@ -1,6 +1,9 @@
 import { GetRandomCharFromStringType } from '../index.types';
-import { getFactor } from './getFactor';
+import { getRandomNumber } from './getRandomNumber';
 
+/**
+ * @description Get random char from string
+ */
 export const getRandomCharFromString: GetRandomCharFromStringType = (str) => {
-    return str.charAt(getFactor<string>(str));
+    return str.charAt(getRandomNumber<string>(str));
 };

@@ -1,3 +1,7 @@
+### v0.0.12 (2022-11-29)
+
+- 📋 Added jsDoc for each method
+
 ### v0.0.8 (2022-11-12)
 
 - 🔧 Fixed jsDoc for 'generatePassword' method

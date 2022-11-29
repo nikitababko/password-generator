@@ -1,5 +1,8 @@
 import { IncludeType, RegExpsType } from '../index.types';
 
+/**
+ * @description Chars dictionary
+ */
 export const Include: IncludeType = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowersChars: 'abcdefghijklmnopqrstuvwxyz',
@@ -17,6 +20,9 @@ export const Include: IncludeType = {
     },
 };
 
+/**
+ * @description Regular expressions
+ */
 export const RegExps: RegExpsType = {
     WithoutBeginNumber: /^\d/,
     WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
