@@ -1,6 +1,6 @@
 {
   "name": "@nikitababko/password-generator",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Password generator",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,7 +29,7 @@
   "private": false,
   "sideEffects": false,
   "engines": {
-    "node": ">=14.17.5"
+    "node": ">=14.17.5 <=16.15.0"
   },
   "repository": {
     "type": "git",
@@ -44,30 +44,35 @@
     "start:example": "ts-node examples/index.ts",
     "clear": "rm -rf dist",
     "build:lib": "pnpm clear && tsc -p tsconfig.production.json && rollup -c rollup.config.js",
-    "tests": "mocha './src/tests/index.spec.ts'",
-    "pre:commit": "pnpm tests && pnpm build:lib && pnpm v:patch",
-    "v:release": "npm --no-git-tag-version version prerelease",
-    "v:patch": "npm --no-git-tag-version version patch",
-    "v:minor": "npm --no-git-tag-version version minor",
-    "v:major": "npm --no-git-tag-version version major",
+    "test:unit": "mocha './src/tests/index.spec.ts'",
     "prepare": "npx husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "17.6.1",
+    "@commitlint/config-conventional": "17.6.1",
     "@rollup/plugin-typescript": "8.5.0",
     "@types/chai": "4.3.3",
     "@types/mocha": "9.1.1",
     "@types/node": "18.7.18",
     "chai": "4.3.6",
+    "commitizen": "4.3.0",
+    "cz-customizable": "7.0.0",
     "husky": "8.0.1",
-    "mocha": "10.0.0",
+    "mocha": "10.2.0",
     "rollup": "2.79.1",
     "rollup-plugin-size-snapshot": "0.12.0",
     "rollup-plugin-terser": "7.0.2",
     "ts-loader": "9.3.0",
     "ts-node": "10.8.1",
     "tslib": "2.4.0",
-    "typescript": "4.7.3",
-    "webpack": "5.73.0",
-    "webpack-cli": "4.9.2"
+    "typescript": "4.7.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "commitizen.config.js"
+    }
   }
 }
