@@ -1,1 +1,0 @@
-{"version":3,"file":"getStringWithoutBeginNumber.js","sourceRoot":"","sources":["../../src/utils/getStringWithoutBeginNumber.ts"],"names":[],"mappings":";;;AAAA,iCAAkC;AAClC,uEAAoE;AAGpE;;GAEG;AACI,MAAM,2BAA2B,GAAoC,CAAC,GAAG,EAAE,EAAE;IAChF,OAAO,GAAG,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,EAAE,IAAA,iDAAuB,EAAC,eAAQ,CAAC,WAAW,CAAC,CAAC,CAAC;AAC9E,CAAC,CAAC;AAFW,QAAA,2BAA2B,+BAEtC"}

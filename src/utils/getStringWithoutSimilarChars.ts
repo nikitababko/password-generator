@@ -1,4 +1,4 @@
-import { Alphabet } from './data';
+import { Alphabet, RegExps } from './data';
 import { getRandomNumber } from './getRandomNumber';
 import { GetStringWithoutSimilarCharsType } from '../index.types';
 
@@ -7,7 +7,7 @@ import { GetStringWithoutSimilarCharsType } from '../index.types';
  */
 export const getStringWithoutSimilarChars: GetStringWithoutSimilarCharsType = (str) => {
     return str.replaceAll(
-        /[ilI1LoO0]/g,
-        () => Alphabet.NoSimilarChars[getRandomNumber<string>(Alphabet.NoSimilarChars)],
+        RegExps.SimilarChars,
+        () => Alphabet.WithoutSimilarChars[getRandomNumber<string>(Alphabet.WithoutSimilarChars)],
     );
 };

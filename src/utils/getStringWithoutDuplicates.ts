@@ -7,7 +7,7 @@ import { GetStringWithoutDuplicatesType } from '../index.types';
  */
 export const getStringWithoutDuplicates: GetStringWithoutDuplicatesType = (str) => {
     return str.replaceAll(
-        RegExps.WithoutDuplicates,
+        RegExps.Duplicates,
         () =>
             Alphabet.AllChars()[getRandomNumber<number>(Alphabet.AllChars().length)] +
             Alphabet.AllChars()[getRandomNumber<number>(Alphabet.AllChars().length)],

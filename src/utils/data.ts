@@ -10,8 +10,8 @@ export const Alphabet: AlphabetType = {
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
     AmbiguousChars: '{}[]()/\'"`~,;:.<>',
-    NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
-    NoAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
+    WithoutSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
+    WithoutAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
     AllChars: function () {
         return (
             (this as any).UppersChars +
@@ -26,7 +26,9 @@ export const Alphabet: AlphabetType = {
  * @description Regular expressions
  */
 export const RegExps: RegExpsType = {
-    WithoutBeginNumber: /^\d/,
-    WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
-    WithoutDuplicates: /(\w)\1{1}/g,
+    StartWithANumber: /^\d/,
+    StartWithASymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
+    Duplicates: /(\w)\1{1}/g,
+    SimilarChars: /[ilI1LoO0]/g,
+    AmbiguousChars: /[{}\[\]()/'"`~,;:.<>]/g,
 };

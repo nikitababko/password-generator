@@ -3,11 +3,11 @@ import {
     Alphabet,
     getRandomCharFromString,
     getStringWithoutAmbiguousChars,
-    getStringWithoutBeginNumber,
-    getStringWithoutBeginSymbol,
     getStringWithoutDuplicates,
     getStringWithoutSequentialChars,
     getStringWithoutSimilarChars,
+    getStringWithoutStartingWithANumber,
+    getStringWithoutStartingWithASymbol,
     RegExps,
 } from './utils';
 
@@ -21,28 +21,28 @@ import {
  *      includeNumbers: true,
  *      includeLowerCaseChars: true,
  *      includeUpperCaseChars: true,
- *      includeSymbols: true,
- *      noSimilarChars: true
- *      noAmbiguousChars: true
- *      noSequentialChars: true,
- *      dontStartWithANumber: true,
- *      dontStartWithASymbol: true,
- *      noDuplicatesChars: true,
+ *      includeSymbols: false,
+ *      excludeSimilarChars: true
+ *      excludeAmbiguousChars: true
+ *      excludeSequentialChars: false,
+ *      excludeDuplicatesChars: false,
+ *      dontStartingWithANumber: false,
+ *      dontStartingWithASymbol: true,
  * })
  *
  * @param {Object} passwordConfig - password configuration
  * @param {number} passwordConfig.length - password length
  * @param {number} passwordConfig.quantity - passwords quantity
  * @param {boolean} passwordConfig.includeNumbers - include numbers or not
- * @param {boolean} passwordConfig.dontStartWithANumber - do not start password with number
- * @param {boolean} passwordConfig.dontStartWithASymbol - do not start password with symbol
  * @param {boolean} passwordConfig.includeLowerCaseChars - include lower case chars in passwords
  * @param {boolean} passwordConfig.includeUpperCaseChars - include upper case chars in passwords
  * @param {boolean} passwordConfig.includeSymbols - include symbols in password
- * @param {boolean} passwordConfig.noSimilarChars - exclude similar chars in password
- * @param {boolean} passwordConfig.noAmbiguousChars - exclude ambiguous chars in password
- * @param {boolean} passwordConfig.noSequentialChars - exclude sequences chars in password
- * @param {boolean} passwordConfig.noDuplicatesChars - exclude duplicates chars in password
+ * @param {boolean} passwordConfig.excludeAmbiguousChars - exclude ambiguous chars in password
+ * @param {boolean} passwordConfig.excludeSequentialChars - exclude sequences chars in password
+ * @param {boolean} passwordConfig.excludeDuplicatesChars - exclude duplicates chars in password
+ * @param {boolean} passwordConfig.excludeSimilarChars - exclude similar chars in password
+ * @param {boolean} passwordConfig.dontStartingWithANumber - do not start password with number
+ * @param {boolean} passwordConfig.dontStartingWithASymbol - do not start password with symbol
  *
  * @returns {string[]} passwords array
  *
@@ -50,18 +50,18 @@ import {
  * @link <https://github.com/nikitababko>
  */
 const generatePassword: GeneratePasswordType = ({
-    length = 6,
+    length = 16,
     quantity = 1,
     includeNumbers = true,
     includeLowerCaseChars = true,
     includeUpperCaseChars = true,
     includeSymbols = true,
-    noSimilarChars,
-    noSequentialChars,
-    dontStartWithANumber,
-    dontStartWithASymbol,
-    noDuplicatesChars,
-    noAmbiguousChars,
+    excludeSimilarChars,
+    excludeSequentialChars,
+    excludeDuplicatesChars,
+    excludeAmbiguousChars,
+    dontStartingWithANumber,
+    dontStartingWithASymbol,
 }) => {
     const passwordsArray: string[] = [];
 
@@ -85,31 +85,31 @@ const generatePassword: GeneratePasswordType = ({
 
         let password: string = string.slice(0, length);
 
-        if (dontStartWithANumber) {
-            if (RegExps.WithoutBeginNumber.test(password[0])) {
-                password = getStringWithoutBeginNumber(password);
+        if (dontStartingWithANumber) {
+            if (RegExps.StartWithANumber.test(password[0])) {
+                password = getStringWithoutStartingWithANumber(password);
             }
         }
 
-        if (dontStartWithASymbol) {
-            if (RegExps.WithoutBeginSymbol.test(password[0])) {
-                password = getStringWithoutBeginSymbol(password);
+        if (dontStartingWithASymbol) {
+            if (RegExps.StartWithASymbol.test(password[0])) {
+                password = getStringWithoutStartingWithASymbol(password);
             }
         }
 
-        if (noSequentialChars) {
+        if (excludeSequentialChars) {
             password = getStringWithoutSequentialChars(password);
         }
 
-        if (noSimilarChars) {
+        if (excludeSimilarChars) {
             password = getStringWithoutSimilarChars(password);
         }
 
-        if (noAmbiguousChars) {
+        if (excludeAmbiguousChars) {
             password = getStringWithoutAmbiguousChars(password);
         }
 
-        if (noDuplicatesChars) {
+        if (excludeDuplicatesChars) {
             password = getStringWithoutDuplicates(password);
         }
 

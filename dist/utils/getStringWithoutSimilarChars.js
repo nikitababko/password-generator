@@ -7,7 +7,7 @@ const getRandomNumber_1 = require("./getRandomNumber");
  * @description Get string without similar chars
  */
 const getStringWithoutSimilarChars = (str) => {
-    return str.replaceAll(/[ilI1LoO0]/g, () => data_1.Alphabet.NoSimilarChars[(0, getRandomNumber_1.getRandomNumber)(data_1.Alphabet.NoSimilarChars)]);
+    return str.replaceAll(data_1.RegExps.SimilarChars, () => data_1.Alphabet.WithoutSimilarChars[(0, getRandomNumber_1.getRandomNumber)(data_1.Alphabet.WithoutSimilarChars)]);
 };
 exports.getStringWithoutSimilarChars = getStringWithoutSimilarChars;
 //# sourceMappingURL=getStringWithoutSimilarChars.js.map

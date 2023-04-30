@@ -7,7 +7,7 @@ const getRandomNumber_1 = require("./getRandomNumber");
  * @description Get string without ambiguous chars
  */
 const getStringWithoutAmbiguousChars = (str) => {
-    return str.replaceAll(/[{}\[\]()/'"`~,;:.<>]/g, () => data_1.Alphabet.NoAmbiguousChars[(0, getRandomNumber_1.getRandomNumber)(data_1.Alphabet.NoAmbiguousChars)]);
+    return str.replaceAll(data_1.RegExps.AmbiguousChars, () => data_1.Alphabet.WithoutAmbiguousChars[(0, getRandomNumber_1.getRandomNumber)(data_1.Alphabet.WithoutAmbiguousChars)]);
 };
 exports.getStringWithoutAmbiguousChars = getStringWithoutAmbiguousChars;
 //# sourceMappingURL=getStringWithoutAmbiguousChars.js.map

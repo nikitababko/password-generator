@@ -1,4 +1,4 @@
-import { Alphabet } from './data';
+import { Alphabet, RegExps } from './data';
 import { getRandomNumber } from './getRandomNumber';
 import { GetStringWithoutAmbiguousCharsType } from '../index.types';
 
@@ -7,7 +7,7 @@ import { GetStringWithoutAmbiguousCharsType } from '../index.types';
  */
 export const getStringWithoutAmbiguousChars: GetStringWithoutAmbiguousCharsType = (str) => {
     return str.replaceAll(
-        /[{}\[\]()/'"`~,;:.<>]/g,
-        () => Alphabet.NoAmbiguousChars[getRandomNumber<string>(Alphabet.NoAmbiguousChars)],
+        RegExps.AmbiguousChars,
+        () => Alphabet.WithoutAmbiguousChars[getRandomNumber<string>(Alphabet.WithoutAmbiguousChars)],
     );
 };

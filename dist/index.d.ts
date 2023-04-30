@@ -9,28 +9,28 @@ import { GeneratePasswordType } from './index.types';
  *      includeNumbers: true,
  *      includeLowerCaseChars: true,
  *      includeUpperCaseChars: true,
- *      includeSymbols: true,
- *      noSimilarChars: true
- *      noAmbiguousChars: true
- *      noSequentialChars: true,
- *      dontStartWithANumber: true,
- *      dontStartWithASymbol: true,
- *      noDuplicatesChars: true,
+ *      includeSymbols: false,
+ *      excludeSimilarChars: true
+ *      excludeAmbiguousChars: true
+ *      excludeSequentialChars: false,
+ *      excludeDuplicatesChars: false,
+ *      dontStartingWithANumber: false,
+ *      dontStartingWithASymbol: true,
  * })
  *
  * @param {Object} passwordConfig - password configuration
  * @param {number} passwordConfig.length - password length
  * @param {number} passwordConfig.quantity - passwords quantity
  * @param {boolean} passwordConfig.includeNumbers - include numbers or not
- * @param {boolean} passwordConfig.dontStartWithANumber - do not start password with number
- * @param {boolean} passwordConfig.dontStartWithASymbol - do not start password with symbol
  * @param {boolean} passwordConfig.includeLowerCaseChars - include lower case chars in passwords
  * @param {boolean} passwordConfig.includeUpperCaseChars - include upper case chars in passwords
  * @param {boolean} passwordConfig.includeSymbols - include symbols in password
- * @param {boolean} passwordConfig.noSimilarChars - exclude similar chars in password
- * @param {boolean} passwordConfig.noAmbiguousChars - exclude ambiguous chars in password
- * @param {boolean} passwordConfig.noSequentialChars - exclude sequences chars in password
- * @param {boolean} passwordConfig.noDuplicatesChars - exclude duplicates chars in password
+ * @param {boolean} passwordConfig.excludeAmbiguousChars - exclude ambiguous chars in password
+ * @param {boolean} passwordConfig.excludeSequentialChars - exclude sequences chars in password
+ * @param {boolean} passwordConfig.excludeDuplicatesChars - exclude duplicates chars in password
+ * @param {boolean} passwordConfig.excludeSimilarChars - exclude similar chars in password
+ * @param {boolean} passwordConfig.dontStartingWithANumber - do not start password with number
+ * @param {boolean} passwordConfig.dontStartingWithASymbol - do not start password with symbol
  *
  * @returns {string[]} passwords array
  *

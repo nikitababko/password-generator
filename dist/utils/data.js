@@ -11,8 +11,8 @@ exports.Alphabet = {
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
     AmbiguousChars: '{}[]()/\'"`~,;:.<>',
-    NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
-    NoAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
+    WithoutSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
+    WithoutAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
     AllChars: function () {
         return (this.UppersChars +
             this.LowersChars +
@@ -24,8 +24,10 @@ exports.Alphabet = {
  * @description Regular expressions
  */
 exports.RegExps = {
-    WithoutBeginNumber: /^\d/,
-    WithoutBeginSymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
-    WithoutDuplicates: /(\w)\1{1}/g,
+    StartWithANumber: /^\d/,
+    StartWithASymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
+    Duplicates: /(\w)\1{1}/g,
+    SimilarChars: /[ilI1LoO0]/g,
+    AmbiguousChars: /[{}\[\]()/'"`~,;:.<>]/g,
 };
 //# sourceMappingURL=data.js.map

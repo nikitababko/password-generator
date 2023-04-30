@@ -2,15 +2,15 @@ export type ArgsType = Partial<{
     length: number;
     quantity: number;
     includeNumbers: boolean;
-    dontStartWithANumber: boolean;
-    dontStartWithASymbol: boolean;
+    dontStartingWithANumber: boolean;
+    dontStartingWithASymbol: boolean;
     includeLowerCaseChars: boolean;
     includeUpperCaseChars: boolean;
     includeSymbols: boolean;
-    noSimilarChars: boolean;
-    noAmbiguousChars: boolean;
-    noSequentialChars: boolean;
-    noDuplicatesChars: boolean;
+    excludeSimilarChars: boolean;
+    excludeAmbiguousChars: boolean;
+    excludeSequentialChars: boolean;
+    excludeDuplicatesChars: boolean;
 }>;
 
 export type GeneratePasswordType = (args: ArgsType) => string[];
@@ -22,20 +22,23 @@ export type AlphabetType = {
     SymbolChars: string;
     SimilarChars: string;
     AmbiguousChars: string;
-    NoSimilarChars: string;
-    NoAmbiguousChars: string;
+    WithoutSimilarChars: string;
+    WithoutAmbiguousChars: string;
     AllChars: () => string;
 };
 
-export type RegExpsType = Record<string, RegExp>;
+export type RegExpsType = Record<
+    'StartWithANumber' | 'StartWithASymbol' | 'Duplicates' | 'SimilarChars' | 'AmbiguousChars',
+    RegExp
+>;
 
 export type GetRandomNumberType = <T>(value: T) => number;
 
 export type GetRandomCharFromStringType = (str: string) => string;
 
-export type GetStringWithoutBeginNumberType = (str: string) => string;
+export type GetStringWithoutStartingWithANumberType = (str: string) => string;
 
-export type GetStringWithoutBeginSymbolType = (str: string) => string;
+export type GetStringWithoutStartWithASymbolType = (str: string) => string;
 
 export type GetStringWithoutDuplicatesType = (str: string) => string;
 
