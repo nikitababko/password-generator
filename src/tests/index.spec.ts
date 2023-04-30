@@ -5,11 +5,12 @@ import {
     getRandomCharFromString,
     getRandomNumber,
     getStringWithoutAmbiguousChars,
-    getStringWithoutBeginNumber,
-    getStringWithoutBeginSymbol,
     getStringWithoutDuplicates,
     getStringWithoutSequentialChars,
     getStringWithoutSimilarChars,
+    getStringWithoutStartingWithANumber,
+    getStringWithoutStartingWithASymbol,
+    RegExps,
 } from '../utils';
 
 describe('getRandomNumber', () => {
@@ -36,23 +37,23 @@ describe('getRandomCharFromString', () => {
     });
 });
 
-describe('getStringWithoutBeginNumber', () => {
+describe('getStringWithoutStartingWithANumber', () => {
     it('Value to be exists', () => {
-        assert.exists(getStringWithoutBeginNumber('some-string'), 'Value is not exists');
+        assert.exists(getStringWithoutStartingWithANumber('some-string'), 'Value is not exists');
     });
 
     it("Returned value to be a 'string'", () => {
-        expect(getStringWithoutBeginNumber('some-string')).to.be.a('string', "Value type is not a 'string'");
+        expect(getStringWithoutStartingWithANumber('some-string')).to.be.a('string', "Value type is not a 'string'");
     });
 });
 
-describe('getStringWithoutBeginSymbol', () => {
+describe('getStringWithoutStartingWithASymbol', () => {
     it('Value to be exists', () => {
-        assert.exists(getStringWithoutBeginSymbol('some-string'), 'Value is not exists');
+        assert.exists(getStringWithoutStartingWithASymbol('some-string'), 'Value is not exists');
     });
 
     it("Returned value to be a 'string'", () => {
-        expect(getStringWithoutBeginSymbol('some-string')).to.be.a('string', "Value type is not a 'string'");
+        expect(getStringWithoutStartingWithASymbol('some-string')).to.be.a('string', "Value type is not a 'string'");
     });
 });
 
@@ -97,7 +98,7 @@ describe('getStringWithoutAmbiguousChars', () => {
 });
 
 const length = 16;
-const quantity = 2;
+const quantity = 3;
 
 describe('generatePassword', () => {
     it('Value to be exists', () => {
@@ -105,15 +106,15 @@ describe('generatePassword', () => {
             generatePassword({
                 length,
                 quantity,
-                dontStartWithANumber: true,
-                dontStartWithASymbol: true,
+                dontStartingWithANumber: true,
+                dontStartingWithASymbol: true,
                 includeLowerCaseChars: true,
                 includeNumbers: true,
                 includeSymbols: true,
                 includeUpperCaseChars: true,
-                noDuplicatesChars: true,
-                noSequentialChars: true,
-                noSimilarChars: true,
+                excludeDuplicatesChars: true,
+                excludeSequentialChars: true,
+                excludeSimilarChars: true,
             }),
             'Value is not exists',
         );
@@ -146,5 +147,98 @@ describe('generatePassword', () => {
                 quantity,
             })[0],
         ).to.be.length(length, "Value length is not equal to 'length'");
+    });
+
+    it('Returned value without similar characters', () => {
+        const regExp = new RegExp(RegExps.SimilarChars);
+
+        expect(
+            regExp.test(
+                generatePassword({
+                    length,
+                    quantity,
+                    excludeSimilarChars: true,
+                })[0],
+            ),
+        ).to.be.false;
+    });
+
+    it('Returned value without ambiguous characters', () => {
+        const regExp = new RegExp(RegExps.AmbiguousChars);
+
+        expect(
+            regExp.test(
+                generatePassword({
+                    length,
+                    quantity,
+                    excludeAmbiguousChars: true,
+                })[0],
+            ),
+        ).to.be.false;
+    });
+
+    it('Returned value without sequential', () => {
+        const hasSequentialChars = (str: string) => {
+            return str
+                .split('')
+                .map((_, index, array) => {
+                    if (Number.isInteger(Number(array[index])) && Number.isInteger(Number(array[index + 1]))) {
+                        return Number(array[index]) + 1 === Number(array[index + 1]);
+                    }
+                })
+                .some((char) => char);
+        };
+
+        expect(
+            hasSequentialChars(
+                generatePassword({
+                    length,
+                    quantity,
+                    excludeSequentialChars: true,
+                })[0],
+            ),
+        ).to.be.false;
+    });
+
+    it('Returned value without duplicates characters', () => {
+        const regExp = new RegExp(RegExps.Duplicates);
+
+        expect(
+            regExp.test(
+                generatePassword({
+                    length,
+                    quantity,
+                    excludeDuplicatesChars: true,
+                })[0],
+            ),
+        ).to.be.false;
+    });
+
+    it('Returned value must not start with a number characters', () => {
+        const regExp = new RegExp(RegExps.StartWithANumber);
+
+        expect(
+            regExp.test(
+                generatePassword({
+                    length,
+                    quantity,
+                    dontStartingWithANumber: true,
+                })[0],
+            ),
+        ).to.be.false;
+    });
+
+    it('Returned value must not start with a symbol', () => {
+        const regExp = new RegExp(RegExps.StartWithASymbol);
+
+        expect(
+            regExp.test(
+                generatePassword({
+                    length,
+                    quantity,
+                    dontStartingWithASymbol: true,
+                })[0][0],
+            ),
+        ).to.be.false;
     });
 });
