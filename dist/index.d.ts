@@ -37,5 +37,6 @@ import { GeneratePasswordType } from './index.types';
  * @author Nikita Babko <niki.babko@gmail.com>
  * @link <https://github.com/nikitababko>
  */
-export declare const generatePassword: GeneratePasswordType;
+declare const generatePassword: GeneratePasswordType;
+export default generatePassword;
 //# sourceMappingURL=index.d.ts.map

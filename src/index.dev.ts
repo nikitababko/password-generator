@@ -1,4 +1,4 @@
-import { generatePassword } from './';
+import generatePassword from './';
 
 console.log(
     generatePassword({

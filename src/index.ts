@@ -49,7 +49,7 @@ import {
  * @author Nikita Babko <niki.babko@gmail.com>
  * @link <https://github.com/nikitababko>
  */
-export const generatePassword: GeneratePasswordType = ({
+const generatePassword: GeneratePasswordType = ({
     length = 6,
     quantity = 1,
     includeNumbers = true,
@@ -118,3 +118,5 @@ export const generatePassword: GeneratePasswordType = ({
 
     return passwordsArray;
 };
+
+export default generatePassword;

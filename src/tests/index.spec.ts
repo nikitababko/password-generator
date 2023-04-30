@@ -1,16 +1,16 @@
 import { assert, expect } from 'chai';
 
-import { generatePassword } from '../index';
+import generatePassword from '../index';
 import {
     getRandomCharFromString,
     getRandomNumber,
+    getStringWithoutAmbiguousChars,
     getStringWithoutBeginNumber,
     getStringWithoutBeginSymbol,
     getStringWithoutDuplicates,
     getStringWithoutSequentialChars,
     getStringWithoutSimilarChars,
 } from '../utils';
-import { getStringWithoutAmbiguousChars } from '../utils/getStringWithoutAmbiguousChars';
 
 describe('getRandomNumber', () => {
     it('Value to be exists', () => {
