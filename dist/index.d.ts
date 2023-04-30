@@ -11,6 +11,7 @@ import { GeneratePasswordType } from './index.types';
  *      includeUpperCaseChars: true,
  *      includeSymbols: true,
  *      noSimilarChars: true
+ *      noAmbiguousChars: true
  *      noSequentialChars: true,
  *      dontStartWithANumber: true,
  *      dontStartWithASymbol: true,
@@ -26,9 +27,10 @@ import { GeneratePasswordType } from './index.types';
  * @param {boolean} passwordConfig.includeLowerCaseChars - include lower case chars in passwords
  * @param {boolean} passwordConfig.includeUpperCaseChars - include upper case chars in passwords
  * @param {boolean} passwordConfig.includeSymbols - include symbols in password
- * @param {boolean} passwordConfig.noSimilarChars - include similar chars in password
- * @param {boolean} passwordConfig.noSequentialChars - passwords without sequences
- * @param {boolean} passwordConfig.noDuplicatesChars - passwords without duplicates
+ * @param {boolean} passwordConfig.noSimilarChars - exclude similar chars in password
+ * @param {boolean} passwordConfig.noAmbiguousChars - exclude ambiguous chars in password
+ * @param {boolean} passwordConfig.noSequentialChars - exclude sequences chars in password
+ * @param {boolean} passwordConfig.noDuplicatesChars - exclude duplicates chars in password
  *
  * @returns {string[]} passwords array
  *

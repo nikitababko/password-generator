@@ -12,7 +12,7 @@ const getStringWithoutSequentialChars = (str) => {
         .map((char, index, array) => {
         if (Number.isInteger(Number(array[index])) && Number.isInteger(Number(array[index + 1]))) {
             if (Number(array[index]) + 1 === Number(array[index + 1])) {
-                return (0, getRandomCharFromString_1.getRandomCharFromString)(data_1.Include.AllChars());
+                return (0, getRandomCharFromString_1.getRandomCharFromString)(data_1.Alphabet.AllChars());
             }
         }
         return char;

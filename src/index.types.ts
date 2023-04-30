@@ -8,19 +8,22 @@ export type ArgsType = Partial<{
     includeUpperCaseChars: boolean;
     includeSymbols: boolean;
     noSimilarChars: boolean;
+    noAmbiguousChars: boolean;
     noSequentialChars: boolean;
     noDuplicatesChars: boolean;
 }>;
 
 export type GeneratePasswordType = (args: ArgsType) => string[];
 
-export type IncludeType = {
+export type AlphabetType = {
     UppersChars: string;
     LowersChars: string;
     NumbersChars: string;
     SymbolChars: string;
     SimilarChars: string;
+    AmbiguousChars: string;
     NoSimilarChars: string;
+    NoAmbiguousChars: string;
     AllChars: () => string;
 };
 
@@ -39,3 +42,5 @@ export type GetStringWithoutDuplicatesType = (str: string) => string;
 export type GetStringWithoutSequentialCharsType = (str: string) => string;
 
 export type GetStringWithoutSimilarCharsType = (str: string) => string;
+
+export type GetStringWithoutAmbiguousCharsType = (str: string) => string;

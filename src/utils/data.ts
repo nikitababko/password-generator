@@ -1,15 +1,17 @@
-import { IncludeType, RegExpsType } from '../index.types';
+import { AlphabetType, RegExpsType } from '../index.types';
 
 /**
- * @description Chars dictionary
+ * @description Characters alphabet
  */
-export const Include: IncludeType = {
+export const Alphabet: AlphabetType = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowersChars: 'abcdefghijklmnopqrstuvwxyz',
     NumbersChars: '1234567890',
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
+    AmbiguousChars: '{}[]()/\'"`~,;:.<>',
     NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
+    NoAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
     AllChars: function () {
         return (
             (this as any).UppersChars +

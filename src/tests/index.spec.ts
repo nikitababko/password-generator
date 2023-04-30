@@ -10,6 +10,7 @@ import {
     getStringWithoutSequentialChars,
     getStringWithoutSimilarChars,
 } from '../utils';
+import { getStringWithoutAmbiguousChars } from '../utils/getStringWithoutAmbiguousChars';
 
 describe('getRandomNumber', () => {
     it('Value to be exists', () => {
@@ -82,6 +83,16 @@ describe('getStringWithoutSimilarChars', () => {
 
     it("Returned value to be a 'string'", () => {
         expect(getStringWithoutSimilarChars('some-string')).to.be.a('string', "Value type is not a 'string'");
+    });
+});
+
+describe('getStringWithoutAmbiguousChars', () => {
+    it('Value to be exists', () => {
+        assert.exists(getStringWithoutAmbiguousChars('some-string'), 'Value is not exists');
+    });
+
+    it("Returned value to be a 'string'", () => {
+        expect(getStringWithoutAmbiguousChars('some-string')).to.be.a('string', "Value type is not a 'string'");
     });
 });
 

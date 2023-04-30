@@ -1,16 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegExps = exports.Include = void 0;
+exports.RegExps = exports.Alphabet = void 0;
 /**
- * @description Chars dictionary
+ * @description Characters alphabet
  */
-exports.Include = {
+exports.Alphabet = {
     UppersChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowersChars: 'abcdefghijklmnopqrstuvwxyz',
     NumbersChars: '1234567890',
     SymbolChars: `!";#$%&'()*+,-./:;<=>?@[]^_{|}~`,
     SimilarChars: 'ilI1LoO0',
+    AmbiguousChars: '{}[]()/\'"`~,;:.<>',
     NoSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
+    NoAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
     AllChars: function () {
         return (this.UppersChars +
             this.LowersChars +

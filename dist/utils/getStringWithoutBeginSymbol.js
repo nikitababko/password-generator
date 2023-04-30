@@ -7,7 +7,7 @@ const getRandomCharFromString_1 = require("./getRandomCharFromString");
  * @description Get string without begin symbol
  */
 const getStringWithoutBeginSymbol = (str) => {
-    return str.replace(str[0], (0, getRandomCharFromString_1.getRandomCharFromString)(data_1.Include.LowersChars));
+    return str.replace(str[0], (0, getRandomCharFromString_1.getRandomCharFromString)(data_1.Alphabet.LowersChars));
 };
 exports.getStringWithoutBeginSymbol = getStringWithoutBeginSymbol;
 //# sourceMappingURL=getStringWithoutBeginSymbol.js.map

@@ -1,12 +1,13 @@
-import {GeneratePasswordType} from './index.types';
+import { GeneratePasswordType } from './index.types';
 import {
+    Alphabet,
     getRandomCharFromString,
+    getStringWithoutAmbiguousChars,
     getStringWithoutBeginNumber,
     getStringWithoutBeginSymbol,
     getStringWithoutDuplicates,
     getStringWithoutSequentialChars,
     getStringWithoutSimilarChars,
-    Include,
     RegExps,
 } from './utils';
 
@@ -22,6 +23,7 @@ import {
  *      includeUpperCaseChars: true,
  *      includeSymbols: true,
  *      noSimilarChars: true
+ *      noAmbiguousChars: true
  *      noSequentialChars: true,
  *      dontStartWithANumber: true,
  *      dontStartWithASymbol: true,
@@ -37,9 +39,10 @@ import {
  * @param {boolean} passwordConfig.includeLowerCaseChars - include lower case chars in passwords
  * @param {boolean} passwordConfig.includeUpperCaseChars - include upper case chars in passwords
  * @param {boolean} passwordConfig.includeSymbols - include symbols in password
- * @param {boolean} passwordConfig.noSimilarChars - include similar chars in password
- * @param {boolean} passwordConfig.noSequentialChars - passwords without sequences
- * @param {boolean} passwordConfig.noDuplicatesChars - passwords without duplicates
+ * @param {boolean} passwordConfig.noSimilarChars - exclude similar chars in password
+ * @param {boolean} passwordConfig.noAmbiguousChars - exclude ambiguous chars in password
+ * @param {boolean} passwordConfig.noSequentialChars - exclude sequences chars in password
+ * @param {boolean} passwordConfig.noDuplicatesChars - exclude duplicates chars in password
  *
  * @returns {string[]} passwords array
  *
@@ -58,6 +61,7 @@ export const generatePassword: GeneratePasswordType = ({
     dontStartWithANumber,
     dontStartWithASymbol,
     noDuplicatesChars,
+    noAmbiguousChars,
 }) => {
     const passwordsArray: string[] = [];
 
@@ -66,16 +70,16 @@ export const generatePassword: GeneratePasswordType = ({
 
         for (let i = 0; i < length; i++) {
             if (includeUpperCaseChars) {
-                string += getRandomCharFromString(Include.UppersChars);
+                string += getRandomCharFromString(Alphabet.UppersChars);
             }
             if (includeLowerCaseChars) {
-                string += getRandomCharFromString(Include.LowersChars);
+                string += getRandomCharFromString(Alphabet.LowersChars);
             }
             if (includeNumbers) {
-                string += getRandomCharFromString(Include.NumbersChars);
+                string += getRandomCharFromString(Alphabet.NumbersChars);
             }
             if (includeSymbols) {
-                string += getRandomCharFromString(Include.SymbolChars);
+                string += getRandomCharFromString(Alphabet.SymbolChars);
             }
         }
 
@@ -99,6 +103,10 @@ export const generatePassword: GeneratePasswordType = ({
 
         if (noSimilarChars) {
             password = getStringWithoutSimilarChars(password);
+        }
+
+        if (noAmbiguousChars) {
+            password = getStringWithoutAmbiguousChars(password);
         }
 
         if (noDuplicatesChars) {

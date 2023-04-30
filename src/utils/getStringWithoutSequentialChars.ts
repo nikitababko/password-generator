@@ -1,4 +1,4 @@
-import { Include } from './data';
+import { Alphabet } from './data';
 import { getRandomCharFromString } from './getRandomCharFromString';
 import { GetStringWithoutSequentialCharsType } from '../index.types';
 
@@ -11,7 +11,7 @@ export const getStringWithoutSequentialChars: GetStringWithoutSequentialCharsTyp
         .map((char, index, array) => {
             if (Number.isInteger(Number(array[index])) && Number.isInteger(Number(array[index + 1]))) {
                 if (Number(array[index]) + 1 === Number(array[index + 1])) {
-                    return getRandomCharFromString(Include.AllChars());
+                    return getRandomCharFromString(Alphabet.AllChars());
                 }
             }
 

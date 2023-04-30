@@ -23,4 +23,5 @@ __exportStar(require("./getStringWithoutBeginSymbol"), exports);
 __exportStar(require("./getStringWithoutDuplicates"), exports);
 __exportStar(require("./getStringWithoutSequentialChars"), exports);
 __exportStar(require("./getStringWithoutSimilarChars"), exports);
+__exportStar(require("./getStringWithoutAmbiguousChars"), exports);
 //# sourceMappingURL=index.js.map

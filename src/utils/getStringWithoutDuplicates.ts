@@ -1,4 +1,4 @@
-import { Include, RegExps } from './data';
+import { Alphabet, RegExps } from './data';
 import { getRandomNumber } from './getRandomNumber';
 import { GetStringWithoutDuplicatesType } from '../index.types';
 
@@ -9,7 +9,7 @@ export const getStringWithoutDuplicates: GetStringWithoutDuplicatesType = (str) 
     return str.replaceAll(
         RegExps.WithoutDuplicates,
         () =>
-            Include.AllChars()[getRandomNumber<number>(Include.AllChars().length)] +
-            Include.AllChars()[getRandomNumber<number>(Include.AllChars().length)],
+            Alphabet.AllChars()[getRandomNumber<number>(Alphabet.AllChars().length)] +
+            Alphabet.AllChars()[getRandomNumber<number>(Alphabet.AllChars().length)],
     );
 };
