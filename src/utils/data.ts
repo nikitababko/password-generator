@@ -1,4 +1,4 @@
-import { AlphabetType, RegExpsType } from '../index.types';
+import type { AlphabetType, RegExpsType } from '../index.types';
 
 /**
  * @description Characters alphabet
@@ -12,13 +12,8 @@ export const Alphabet: AlphabetType = {
     AmbiguousChars: '{}[]()/\'"`~,;:.<>',
     WithoutSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
     WithoutAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
-    AllChars: function () {
-        return (
-            (this as any).UppersChars +
-            (this as any).LowersChars +
-            (this as any).NumbersChars +
-            (this as any).SymbolChars
-        );
+    AllChars() {
+        return this.UppersChars + this.LowersChars + this.NumbersChars + this.SymbolChars;
     },
 };
 
@@ -30,5 +25,5 @@ export const RegExps: RegExpsType = {
     StartWithASymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
     Duplicates: /(\w)\1{1}/g,
     SimilarChars: /[ilI1LoO0]/g,
-    AmbiguousChars: /[{}\[\]()/'"`~,;:.<>]/g,
+    AmbiguousChars: /[{}[\]()/\\'"`~,;:.<>]/g,
 };

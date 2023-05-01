@@ -1,4 +1,4 @@
-import { GetRandomCharFromStringType } from '../index.types';
+import type { GetRandomCharFromStringType } from '../index.types';
 import { getRandomNumber } from './getRandomNumber';
 
 /**

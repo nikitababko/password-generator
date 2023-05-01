@@ -28,7 +28,7 @@
 - 🏗️ Refactored code and added method 'getStringWithoutSequentialChars'
 - 🚀 Added 'NoSimilarChars' alphabet and new logic
 - 🔥 Removed prev option code
-- 🛠 Refactored and optimazed all code
+- 🛠 Refactored and optimized all code
 
 ### [v0.0.1-alfa.9 (2022-08-24)](https://github.com/nikitababko/password-generator/tree/0f93cf811903f4b7a8b5097b68a553580f6fc3e8)
 

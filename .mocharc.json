@@ -1,12 +1,21 @@
 {
-    "diff": true,
-    "extension": ["js", "cjs", "mjs", "ts"],
-    "package": "./package.json",
-    "reporter": "spec",
-    "slow": "75",
-    "timeout": "2000",
-    "ui": "bdd",
-    "watch-files": ["src/**/*.ts"],
-    "watch-ignore": ["dist"],
-    "loader": "ts-node/esm"
+  "diff": true,
+  "extension": [
+    "js",
+    "cjs",
+    "mjs",
+    "ts"
+  ],
+  "package": "./package.json",
+  "reporter": "spec",
+  "slow": 75,
+  "timeout": 2000,
+  "ui": "bdd",
+  "watch-files": [
+    "src/**/*.ts"
+  ],
+  "watch-ignore": [
+    "dist"
+  ],
+  "loader": "ts-node/esm"
 }

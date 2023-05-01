@@ -1,0 +1,13 @@
+{
+  "!(dist)**/*.{js,jsx,ts,tsx}": [
+    "npx prettier --write",
+    "npx eslint --fix",
+    "eslint --max-warnings=0",
+    "bash -c tsc"
+  ],
+  "**/*.{js,jsx,ts,tsx,md,json}": [
+    "npx cspell '**/*.{js,jsx,ts,tsx,md,json}'"
+  ]
+}
+
+

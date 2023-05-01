@@ -1,4 +1,4 @@
-import { GeneratePasswordType } from './index.types';
+import type { GeneratePasswordType } from './index.types';
 /**
  * @description Password generator
  *

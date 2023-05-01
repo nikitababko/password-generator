@@ -1,4 +1,4 @@
-import { GetStringWithoutStartWithASymbolType } from '../index.types';
+import type { GetStringWithoutStartWithASymbolType } from '../index.types';
 /**
  * @description Get string without begin symbol
  */

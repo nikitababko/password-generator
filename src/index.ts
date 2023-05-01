@@ -1,4 +1,4 @@
-import { GeneratePasswordType } from './index.types';
+import type { GeneratePasswordType } from './index.types';
 import {
     Alphabet,
     getRandomCharFromString,
@@ -10,6 +10,7 @@ import {
     getStringWithoutStartingWithASymbol,
     RegExps,
 } from './utils';
+import { FIRST_ELEMENT, PASSWORD_LENGTH, PASSWORD_QUANTITY } from './constants';
 
 /**
  * @description Password generator
@@ -50,8 +51,8 @@ import {
  * @link <https://github.com/nikitababko>
  */
 const generatePassword: GeneratePasswordType = ({
-    length = 16,
-    quantity = 1,
+    length = PASSWORD_LENGTH,
+    quantity = PASSWORD_QUANTITY,
     includeNumbers = true,
     includeLowerCaseChars = true,
     includeUpperCaseChars = true,
@@ -66,9 +67,9 @@ const generatePassword: GeneratePasswordType = ({
     const passwordsArray: string[] = [];
 
     for (let i = 0; i < quantity; i++) {
-        let string: string = '';
+        let string = '';
 
-        for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length; j++) {
             if (includeUpperCaseChars) {
                 string += getRandomCharFromString(Alphabet.UppersChars);
             }
@@ -83,16 +84,16 @@ const generatePassword: GeneratePasswordType = ({
             }
         }
 
-        let password: string = string.slice(0, length);
+        let password: string = string.slice(FIRST_ELEMENT, length);
 
         if (dontStartingWithANumber) {
-            if (RegExps.StartWithANumber.test(password[0])) {
+            if (RegExps.StartWithANumber.test(password.at(FIRST_ELEMENT) ?? '')) {
                 password = getStringWithoutStartingWithANumber(password);
             }
         }
 
         if (dontStartingWithASymbol) {
-            if (RegExps.StartWithASymbol.test(password[0])) {
+            if (RegExps.StartWithASymbol.test(password.at(FIRST_ELEMENT) ?? '')) {
                 password = getStringWithoutStartingWithASymbol(password);
             }
         }

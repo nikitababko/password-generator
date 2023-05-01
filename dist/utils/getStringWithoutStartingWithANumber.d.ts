@@ -1,4 +1,4 @@
-import { GetStringWithoutStartingWithANumberType } from '../index.types';
+import type { GetStringWithoutStartingWithANumberType } from '../index.types';
 /**
  * @description Get string without start with a number
  */

@@ -1,1 +1,1 @@
-{"version":3,"file":"getStringWithoutStartingWithASymbol.d.ts","sourceRoot":"","sources":["../../src/utils/getStringWithoutStartingWithASymbol.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,oCAAoC,EAAE,MAAM,gBAAgB,CAAC;AAEtE;;GAEG;AACH,eAAO,MAAM,mCAAmC,EAAE,oCAEjD,CAAC"}
+{"version":3,"file":"getStringWithoutStartingWithASymbol.d.ts","sourceRoot":"","sources":["../../src/utils/getStringWithoutStartingWithASymbol.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,oCAAoC,EAAE,MAAM,gBAAgB,CAAC;AAG3E;;GAEG;AACH,eAAO,MAAM,mCAAmC,EAAE,oCAEjD,CAAC"}

@@ -1,4 +1,3 @@
-export * from './';
 export * from './data';
 export * from './getRandomNumber';
 export * from './getRandomCharFromString';

@@ -1,4 +1,4 @@
-import { AlphabetType, RegExpsType } from '../index.types';
+import type { AlphabetType, RegExpsType } from '../index.types';
 /**
  * @description Characters alphabet
  */

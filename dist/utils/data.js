@@ -13,11 +13,8 @@ exports.Alphabet = {
     AmbiguousChars: '{}[]()/\'"`~,;:.<>',
     WithoutSimilarChars: 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789',
     WithoutAmbiguousChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%&*+-=?@^_|',
-    AllChars: function () {
-        return (this.UppersChars +
-            this.LowersChars +
-            this.NumbersChars +
-            this.SymbolChars);
+    AllChars() {
+        return this.UppersChars + this.LowersChars + this.NumbersChars + this.SymbolChars;
     },
 };
 /**
@@ -28,6 +25,6 @@ exports.RegExps = {
     StartWithASymbol: /^(?:.*[!";#$%&'()*+,-./:;<=>?@^_{|}~])/,
     Duplicates: /(\w)\1{1}/g,
     SimilarChars: /[ilI1LoO0]/g,
-    AmbiguousChars: /[{}\[\]()/'"`~,;:.<>]/g,
+    AmbiguousChars: /[{}[\]()/\\'"`~,;:.<>]/g,
 };
 //# sourceMappingURL=data.js.map

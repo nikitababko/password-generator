@@ -1,6 +1,6 @@
 import { assert, expect } from 'chai';
 
-import generatePassword from '../index';
+import generatePassword from './index';
 import {
     getRandomCharFromString,
     getRandomNumber,
@@ -11,15 +11,18 @@ import {
     getStringWithoutStartingWithANumber,
     getStringWithoutStartingWithASymbol,
     RegExps,
-} from '../utils';
+} from './utils';
+import { FIRST_ELEMENT, NEXT_CHAR, PASSWORD_LENGTH, PASSWORD_QUANTITY } from './constants';
 
 describe('getRandomNumber', () => {
+    const multiplier = 7;
+
     it('Value to be exists', () => {
-        assert.exists(getRandomNumber(7), 'Value is not exists');
+        assert.exists(getRandomNumber(multiplier), 'Value is not exists');
     });
 
     it("Pass 'number' and returned value to be a 'number'", () => {
-        expect(getRandomNumber(7)).to.be.a('number', "Value type is not a 'number'");
+        expect(getRandomNumber(multiplier)).to.be.a('number', "Value type is not a 'number'");
     });
 
     it("Pass 'string' and returned value to be a 'number'", () => {
@@ -97,15 +100,12 @@ describe('getStringWithoutAmbiguousChars', () => {
     });
 });
 
-const length = 16;
-const quantity = 3;
-
 describe('generatePassword', () => {
     it('Value to be exists', () => {
         assert.exists(
             generatePassword({
-                length,
-                quantity,
+                length: PASSWORD_LENGTH,
+                quantity: PASSWORD_QUANTITY,
                 dontStartingWithANumber: true,
                 dontStartingWithASymbol: true,
                 includeLowerCaseChars: true,
@@ -123,8 +123,8 @@ describe('generatePassword', () => {
     it("Returned value to be an 'array'", () => {
         expect(
             generatePassword({
-                length,
-                quantity,
+                length: PASSWORD_LENGTH,
+                quantity: PASSWORD_QUANTITY,
             }),
         ).to.be.an('array', 'Value is not an array');
     });
@@ -132,10 +132,10 @@ describe('generatePassword', () => {
     it("Returned array length to be equal to 'quantity'", () => {
         assert.lengthOf(
             generatePassword({
-                length,
-                quantity,
+                length: PASSWORD_LENGTH,
+                quantity: PASSWORD_QUANTITY,
             }),
-            quantity,
+            PASSWORD_QUANTITY,
             "Array length is not equal to 'quantity'",
         );
     });
@@ -143,10 +143,10 @@ describe('generatePassword', () => {
     it("Returned value length to be equal to 'length'", () => {
         expect(
             generatePassword({
-                length,
-                quantity,
-            })[0],
-        ).to.be.length(length, "Value length is not equal to 'length'");
+                length: PASSWORD_LENGTH,
+                quantity: PASSWORD_QUANTITY,
+            }).at(FIRST_ELEMENT) ?? '',
+        ).to.be.length(PASSWORD_LENGTH, "Value length is not equal to 'length'");
     });
 
     it('Returned value without similar characters', () => {
@@ -155,10 +155,10 @@ describe('generatePassword', () => {
         expect(
             regExp.test(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     excludeSimilarChars: true,
-                })[0],
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
@@ -169,10 +169,10 @@ describe('generatePassword', () => {
         expect(
             regExp.test(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     excludeAmbiguousChars: true,
-                })[0],
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
@@ -182,9 +182,11 @@ describe('generatePassword', () => {
             return str
                 .split('')
                 .map((_, index, array) => {
-                    if (Number.isInteger(Number(array[index])) && Number.isInteger(Number(array[index + 1]))) {
-                        return Number(array[index]) + 1 === Number(array[index + 1]);
+                    if (Number.isInteger(Number(array[index])) && Number.isInteger(Number(array[index + NEXT_CHAR]))) {
+                        return Number(array[index]) + NEXT_CHAR === Number(array[index + NEXT_CHAR]);
                     }
+
+                    return false;
                 })
                 .some((char) => char);
         };
@@ -192,10 +194,10 @@ describe('generatePassword', () => {
         expect(
             hasSequentialChars(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     excludeSequentialChars: true,
-                })[0],
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
@@ -206,10 +208,10 @@ describe('generatePassword', () => {
         expect(
             regExp.test(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     excludeDuplicatesChars: true,
-                })[0],
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
@@ -220,10 +222,10 @@ describe('generatePassword', () => {
         expect(
             regExp.test(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     dontStartingWithANumber: true,
-                })[0],
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
@@ -234,10 +236,12 @@ describe('generatePassword', () => {
         expect(
             regExp.test(
                 generatePassword({
-                    length,
-                    quantity,
+                    length: PASSWORD_LENGTH,
+                    quantity: PASSWORD_QUANTITY,
                     dontStartingWithASymbol: true,
-                })[0][0],
+                })
+                    .at(FIRST_ELEMENT)
+                    ?.at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });

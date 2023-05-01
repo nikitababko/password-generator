@@ -1,6 +1,6 @@
 import { Alphabet, RegExps } from './data';
 import { getRandomNumber } from './getRandomNumber';
-import { GetStringWithoutAmbiguousCharsType } from '../index.types';
+import type { GetStringWithoutAmbiguousCharsType } from '../index.types';
 
 /**
  * @description Get string without ambiguous chars

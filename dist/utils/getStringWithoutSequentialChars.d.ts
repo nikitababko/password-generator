@@ -1,4 +1,4 @@
-import { GetStringWithoutSequentialCharsType } from '../index.types';
+import type { GetStringWithoutSequentialCharsType } from '../index.types';
 /**
  * @description Get string without sequential chars
  */

@@ -1,6 +1,6 @@
 import { Alphabet, RegExps } from './data';
 import { getRandomNumber } from './getRandomNumber';
-import { GetStringWithoutDuplicatesType } from '../index.types';
+import type { GetStringWithoutDuplicatesType } from '../index.types';
 
 /**
  * @description Get string without duplicates

@@ -15,7 +15,6 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist/",
-    "jsx": "react",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,11 +23,15 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "**/*.ts",
+    "commitlint.config.js",
+    "rollup.config.js",
+    ".prettierrc",
+    ".eslintrc.js"
   ],
   "exclude": [
     "dist",
-    "examples",
-    "node_modules"
+    "node_modules",
+    "src/index.dev.ts"
   ]
 }
