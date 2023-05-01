@@ -25,7 +25,7 @@
   "include": [
     "**/*.ts",
     "commitlint.config.js",
-    "rollup.config.js",
+    "rollup.config.mjs",
     ".prettierrc",
     ".eslintrc.js"
   ],
