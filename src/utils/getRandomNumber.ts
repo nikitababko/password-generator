@@ -1,4 +1,4 @@
-import { GetRandomNumberType } from '../index.types';
+import type { GetRandomNumberType } from '../index.types';
 
 /**
  * @description Get random number

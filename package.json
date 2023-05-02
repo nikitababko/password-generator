@@ -1,6 +1,6 @@
 {
   "name": "@nikitababko/password-generator",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "description": "Password generator",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,7 +14,6 @@
   "keywords": [
     "password",
     "generator",
-    "password-generator",
     "password generator",
     "crypt",
     "encryption",
@@ -29,7 +28,7 @@
   "private": false,
   "sideEffects": false,
   "engines": {
-    "node": ">=14.17.5 <=16.15.0"
+    "node": ">=16.15.0 <=18.16.0"
   },
   "repository": {
     "type": "git",
@@ -42,30 +41,42 @@
   "scripts": {
     "start:dev": "ts-node src/index.dev.ts",
     "start:example": "ts-node examples/index.ts",
+    "lint": "npx eslint . && bash -c tsc",
     "clear": "rm -rf dist",
-    "build:lib": "pnpm clear && tsc -p tsconfig.production.json && rollup -c rollup.config.js",
-    "test:unit": "mocha './src/tests/index.spec.ts'",
+    "build:lib": "pnpm clear && tsc -p tsconfig.production.json && rollup -c rollup.config.mjs",
+    "test:unit": "mocha 'src/index.spec.ts'",
     "prepare": "npx husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
-    "@rollup/plugin-typescript": "8.5.0",
+    "@rollup/plugin-terser": "0.4.1",
+    "@rollup/plugin-typescript": "11.1.0",
     "@types/chai": "4.3.3",
     "@types/mocha": "9.1.1",
     "@types/node": "18.7.18",
+    "@typescript-eslint/eslint-plugin": "5.59.1",
+    "@typescript-eslint/parser": "5.59.1",
     "chai": "4.3.6",
     "commitizen": "4.3.0",
+    "cspell": "6.31.1",
     "cz-customizable": "7.0.0",
+    "eslint": "8.39.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.1",
+    "lint-staged": "13.2.2",
     "mocha": "10.2.0",
-    "rollup": "2.79.1",
+    "prettier": "2.8.8",
+    "rollup": "3.21.2",
     "rollup-plugin-size-snapshot": "0.12.0",
-    "rollup-plugin-terser": "7.0.2",
     "ts-loader": "9.3.0",
     "ts-node": "10.8.1",
     "tslib": "2.4.0",
-    "typescript": "4.7.3"
+    "typescript": "5.0.4"
   },
   "config": {
     "commitizen": {

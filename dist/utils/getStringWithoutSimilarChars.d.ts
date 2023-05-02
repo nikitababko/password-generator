@@ -1,4 +1,4 @@
-import { GetStringWithoutSimilarCharsType } from '../index.types';
+import type { GetStringWithoutSimilarCharsType } from '../index.types';
 /**
  * @description Get string without similar chars
  */

@@ -1,3 +1,3 @@
-import { generatePassword } from '../dist';
+import generatePassword from '../dist/index';
 
 console.log(generatePassword({}));

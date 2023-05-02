@@ -1,8 +1,8 @@
-import { IncludeType, RegExpsType } from '../index.types';
+import type { AlphabetType, RegExpsType } from '../index.types';
 /**
- * @description Chars dictionary
+ * @description Characters alphabet
  */
-export declare const Include: IncludeType;
+export declare const Alphabet: AlphabetType;
 /**
  * @description Regular expressions
  */
