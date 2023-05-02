@@ -21,8 +21,9 @@ module.exports = {
         browser: true,
     },
     overrides: [
+        // TS files
         {
-            files: ['*.ts', '*.tsx'],
+            files: ['*.ts'],
             rules: {
                 'no-console': [
                     'error',
