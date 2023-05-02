@@ -6,7 +6,7 @@
     "bash -c tsc"
   ],
   "**/*.{js,ts,md,json}": [
-    "npx cspell '**/*.{js,jsx,ts,tsx,md,json}'"
+    "npx cspell '**/*.{js,ts,md,json}'"
   ]
 }
 
