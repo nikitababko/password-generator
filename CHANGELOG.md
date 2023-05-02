@@ -2,7 +2,7 @@
 
 - 🚀 Add support for node 18.16.0
 - ✏️ Change library import from `{}` to `default`
-    - `import generatePassword from '@nikitababko/password-generator'`
+    - Example - `import generatePassword from '@nikitababko/password-generator'`
 - 📦 Update package versions
     - `rollup`
     - `@rollup/plugin-typescript`
