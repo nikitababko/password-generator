@@ -7,5 +7,8 @@ import { FIRST_ELEMENT } from '../constants';
  * @description Get string without start with a number
  */
 export const getStringWithoutStartingWithANumber: GetStringWithoutStartingWithANumberType = (str) => {
-    return str.replace(str.at(FIRST_ELEMENT) ?? '', getRandomCharFromString(Alphabet.LowersChars));
+    return str.replace(
+        str.at(FIRST_ELEMENT) ?? '',
+        getRandomCharFromString(`${Alphabet.LowerChars}${Alphabet.UpperChars}`),
+    );
 };

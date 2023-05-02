@@ -41,6 +41,7 @@
   "scripts": {
     "start:dev": "ts-node src/index.dev.ts",
     "start:example": "ts-node examples/index.ts",
+    "lint": "npx eslint . && bash -c tsc",
     "clear": "rm -rf dist",
     "build:lib": "pnpm clear && tsc -p tsconfig.production.json && rollup -c rollup.config.mjs",
     "test:unit": "mocha 'src/index.spec.ts'",

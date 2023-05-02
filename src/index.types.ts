@@ -16,9 +16,9 @@ export type ArgsType = Partial<{
 export type GeneratePasswordType = (args: ArgsType) => string[];
 
 export type AlphabetType = {
-    UppersChars: string;
-    LowersChars: string;
-    NumbersChars: string;
+    UpperChars: string;
+    LowerChars: string;
+    NumberChars: string;
     SymbolChars: string;
     SimilarChars: string;
     AmbiguousChars: string;
@@ -38,7 +38,7 @@ export type GetRandomCharFromStringType = (str: string) => string;
 
 export type GetStringWithoutStartingWithANumberType = (str: string) => string;
 
-export type GetStringWithoutStartWithASymbolType = (str: string) => string;
+export type GetStringWithoutStartingWithASymbolType = (str: string) => string;
 
 export type GetStringWithoutDuplicatesType = (str: string) => string;
 

@@ -71,13 +71,13 @@ const generatePassword: GeneratePasswordType = ({
 
         for (let j = 0; j < length; j++) {
             if (includeUpperCaseChars) {
-                string += getRandomCharFromString(Alphabet.UppersChars);
+                string += getRandomCharFromString(Alphabet.UpperChars);
             }
             if (includeLowerCaseChars) {
-                string += getRandomCharFromString(Alphabet.LowersChars);
+                string += getRandomCharFromString(Alphabet.LowerChars);
             }
             if (includeNumbers) {
-                string += getRandomCharFromString(Alphabet.NumbersChars);
+                string += getRandomCharFromString(Alphabet.NumberChars);
             }
             if (includeSymbols) {
                 string += getRandomCharFromString(Alphabet.SymbolChars);

@@ -9,7 +9,7 @@ const constants_1 = require("../constants");
  */
 const getStringWithoutStartingWithASymbol = (str) => {
     var _a;
-    return str.replace((_a = str.at(constants_1.FIRST_ELEMENT)) !== null && _a !== void 0 ? _a : '', (0, getRandomCharFromString_1.getRandomCharFromString)(data_1.Alphabet.LowersChars));
+    return str.replace((_a = str.at(constants_1.FIRST_ELEMENT)) !== null && _a !== void 0 ? _a : '', (0, getRandomCharFromString_1.getRandomCharFromString)(`${data_1.Alphabet.LowerChars}${data_1.Alphabet.UpperChars}`));
 };
 exports.getStringWithoutStartingWithASymbol = getStringWithoutStartingWithASymbol;
 //# sourceMappingURL=getStringWithoutStartingWithASymbol.js.map

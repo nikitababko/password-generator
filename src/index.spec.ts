@@ -150,10 +150,8 @@ describe('generatePassword', () => {
     });
 
     it('Returned value without similar characters', () => {
-        const regExp = new RegExp(RegExps.SimilarChars);
-
         expect(
-            regExp.test(
+            RegExps.SimilarChars.test(
                 generatePassword({
                     length: PASSWORD_LENGTH,
                     quantity: PASSWORD_QUANTITY,
@@ -164,10 +162,8 @@ describe('generatePassword', () => {
     });
 
     it('Returned value without ambiguous characters', () => {
-        const regExp = new RegExp(RegExps.AmbiguousChars);
-
         expect(
-            regExp.test(
+            RegExps.AmbiguousChars.test(
                 generatePassword({
                     length: PASSWORD_LENGTH,
                     quantity: PASSWORD_QUANTITY,
@@ -203,10 +199,8 @@ describe('generatePassword', () => {
     });
 
     it('Returned value without duplicates characters', () => {
-        const regExp = new RegExp(RegExps.Duplicates);
-
         expect(
-            regExp.test(
+            RegExps.Duplicates.test(
                 generatePassword({
                     length: PASSWORD_LENGTH,
                     quantity: PASSWORD_QUANTITY,
@@ -217,10 +211,8 @@ describe('generatePassword', () => {
     });
 
     it('Returned value must not start with a number characters', () => {
-        const regExp = new RegExp(RegExps.StartWithANumber);
-
         expect(
-            regExp.test(
+            RegExps.StartWithANumber.test(
                 generatePassword({
                     length: PASSWORD_LENGTH,
                     quantity: PASSWORD_QUANTITY,
@@ -231,17 +223,13 @@ describe('generatePassword', () => {
     });
 
     it('Returned value must not start with a symbol', () => {
-        const regExp = new RegExp(RegExps.StartWithASymbol);
-
         expect(
-            regExp.test(
+            RegExps.StartWithASymbol.test(
                 generatePassword({
                     length: PASSWORD_LENGTH,
                     quantity: PASSWORD_QUANTITY,
                     dontStartingWithASymbol: true,
-                })
-                    .at(FIRST_ELEMENT)
-                    ?.at(FIRST_ELEMENT) ?? '',
+                }).at(FIRST_ELEMENT) ?? '',
             ),
         ).to.be.false;
     });
