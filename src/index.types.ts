@@ -47,3 +47,5 @@ export type GetStringWithoutSequentialCharsType = (str: string) => string;
 export type GetStringWithoutSimilarCharsType = (str: string) => string;
 
 export type GetStringWithoutAmbiguousCharsType = (str: string) => string;
+
+export type GetShuffledStringType = (str: string) => string;

@@ -7,3 +7,4 @@ export * from './getStringWithoutDuplicates';
 export * from './getStringWithoutSequentialChars';
 export * from './getStringWithoutSimilarChars';
 export * from './getStringWithoutAmbiguousChars';
+export * from './getShuffledString';

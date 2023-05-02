@@ -15,12 +15,12 @@
   import generatePassword from '@nikitababko/password-generator';
   
   // js import
-  const generatePassword = require('@nikitababko/password-generator').default;
+  const generatePassword = require('@nikitababko/password-generator');
   
   
-  generatePassword({ length: 16 }) // [ 'Fb8"Vp4%Ca7~Vh9$' ]
+  generatePassword({ length: 16 }) // [ 'ks3vaGA@?,798FM!' ]
   
-  generatePassword({ length: 16, quantity: 2 }) // [ 'Yk7@Xl2&Us3!Zp4&', "Av6|Rt1#Sy2]Qy6' ]
+  generatePassword({ length: 16, quantity: 2 }) // [ '+q"]G322WMxi!E6d', "l@4W0Nzm3R4>Q~?r' ]
 ```
 
 ### Available options

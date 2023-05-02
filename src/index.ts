@@ -2,6 +2,7 @@ import type { GeneratePasswordType } from './index.types';
 import {
     Alphabet,
     getRandomCharFromString,
+    getShuffledString,
     getStringWithoutAmbiguousChars,
     getStringWithoutDuplicates,
     getStringWithoutSequentialChars,
@@ -84,7 +85,7 @@ const generatePassword: GeneratePasswordType = ({
             }
         }
 
-        let password: string = string.slice(FIRST_ELEMENT, length);
+        let password: string = getShuffledString(string.slice(FIRST_ELEMENT, length));
 
         if (dontStartingWithANumber) {
             if (RegExps.StartWithANumber.test(password.at(FIRST_ELEMENT) ?? '')) {
