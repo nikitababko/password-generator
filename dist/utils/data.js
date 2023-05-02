@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegExps = exports.Alphabet = void 0;
 /**
  * @description Characters alphabet
  */
-exports.Alphabet = {
+export const Alphabet = {
     UpperChars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     LowerChars: 'abcdefghijklmnopqrstuvwxyz',
     NumberChars: '1234567890',
@@ -20,7 +17,7 @@ exports.Alphabet = {
 /**
  * @description Regular expressions
  */
-exports.RegExps = {
+export const RegExps = {
     StartWithANumber: /^\d/,
     StartWithASymbol: /^[!";#$%&'()*+,-./:;<=>?@^_{|}~]/,
     Duplicates: /(\w)\1{1}/g,
